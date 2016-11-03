@@ -16,20 +16,6 @@ const textfieldstyle = {
     marginBottom:10
 };
 
-const validatebox = (textStatus) => {
-
-    if (textStatus.length > 100) {
-      return {
-              error: '*status is too long',
-            };
-    }  else if (textStatus === '') {
-      return {
-              error: '*status cannot be empty',
-            };
-    }  else {
-      return true;
-    }
-}
 
 class PaserBox extends React.Component{
 
