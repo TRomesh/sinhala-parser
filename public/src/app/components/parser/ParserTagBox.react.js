@@ -160,17 +160,20 @@ class ParserTagBox extends React.Component{
       <ReactTooltip place="bottom" type="dark" effect="float"/>
       </div>
      );
-   }  
+   }
 
-
-
-      render(){
-        return(
-          <div>
-            <RaisedButton secondary={true} label="tag" onTouchTap={this.tagger} />
-          </div>
-        );
-      }
+   render(){
+     return(
+       <div>
+         <RaisedButton secondary={true} label="tag" onTouchTap={this.tagger} />
+         <div style={tagstyles.wrapper}>
+         {this.state.tags.map(this.renderTag, this)}
+         </div>
+         <br/>
+         <div id="cy" style={grapghstyle}></div>
+       </div>
+     );
+   }
 
 }
 
