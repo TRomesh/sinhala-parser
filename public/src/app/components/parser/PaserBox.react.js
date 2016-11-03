@@ -16,6 +16,20 @@ const textfieldstyle = {
     marginBottom:10
 };
 
+const validatebox = (textStatus) => {
+
+    if (textStatus.length > 100) {
+      return {
+              error: '*status is too long',
+            };
+    }  else if (textStatus === '') {
+      return {
+              error: '*status cannot be empty',
+            };
+    }  else {
+      return true;
+    }
+}
 
 class PaserBox extends React.Component{
 
@@ -41,11 +55,9 @@ class PaserBox extends React.Component{
           }
       }
 
-
-
       render(){
         return(
-          <div className="col-lg-6">
+          <div>
              <Paper className="row" style={style} zDepth={1}>
               <div className="col-xs-12 col-sm-12 col-md-12">
                 <TextField fullWidth={true} style={textfieldstyle} ref="textinput" id="MesageBox" onKeyPress={this.EnterKey} multiLine={true} rows={1} rowsMax={6} hintText="Please enter a sentence to be parsed..."/>
