@@ -1,14 +1,14 @@
 import React from 'react';
 
-
 class ContributeContainer extends React.Component{
 
       render(){
         return(
-             <h1>Hello ContributeContainer</h1>
+          <div>
+            <h1>Sinhala Parser Contributes</h1>
+          </div>
         );
       }
 
 }
-
 export default ContributeContainer;
