@@ -1,6 +1,8 @@
 import React from 'react';
 import PaserBox from './PaserBox.react';
+import { Link } from 'react-router';
 import Parserlogo from './Parserlogo.react';
+import RaisedButton from 'material-ui/RaisedButton';
 
 
 class ParserContainer extends React.Component{
@@ -9,6 +11,7 @@ class ParserContainer extends React.Component{
         return(
           <div className="column">
             <PaserBox/>
+            <Link to={"/tag"}><RaisedButton  secondary={true} label="Parse"/></Link>
           </div>
         );
       }
