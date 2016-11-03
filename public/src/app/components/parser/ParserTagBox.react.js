@@ -153,6 +153,16 @@ class ParserTagBox extends React.Component{
     }
 
 
+    renderTag = (data,i) => {
+      return (
+       <div key={i}>
+      <Chip key={i} style={tagstyles.tag} data-tip={data.tag} backgroundColor={data.color}>{data.word}</Chip>
+      <ReactTooltip place="bottom" type="dark" effect="float"/>
+      </div>
+     );
+   }  
+
+
 
       render(){
         return(
