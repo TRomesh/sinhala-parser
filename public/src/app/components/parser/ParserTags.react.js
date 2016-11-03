@@ -1,14 +1,14 @@
 import React from 'react';
 import Chip from 'material-ui/Chip';
 import Badge from 'material-ui/Badge';
-
+import { Link } from 'react-router';
 import RaisedButton from 'material-ui/RaisedButton';
 import SvgIconFace from 'material-ui/svg-icons/action/face';
 import {blueA400, indigoA400,pinkA400,redA400,purpleA400,deepPurpleA400,lightBlueA400,
   cyanA400,tealA400,greenA400,lightGreenA400,limeA400,yellowA200,amberA400,orangeA400,
   deepOrangeA400,brown500,blueGrey500,grey500
 } from 'material-ui/styles/colors';
-
+import ReactTooltip from 'react-tooltip';
 
 
 const styles = {

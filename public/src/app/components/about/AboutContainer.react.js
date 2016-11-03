@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router';
 import SPlogo from '../../media/images/SP.png';
 
 const logoStyle = {
@@ -15,7 +15,7 @@ class AboutContainer extends React.Component{
           <div>
             <h1>Sinhala Parser About</h1>
             <div>
-              <img src={SPlogo} style={logoStyle}/>
+              <Link to={"/parser"} ><img src={SPlogo} style={logoStyle}/></Link>
             </div>
           </div>
         );
