@@ -43,6 +43,46 @@ class ParserTagBox extends React.Component{
 
   }
 
+  tagger = () => {
+   let NewTaggedArray = [];
+   this.state.tagData.map((words)=>{
+
+      switch (words.tag) {
+        case 'NPD':
+            NewTaggedArray.push({tag:'Namapadha',word:words.word,color:blueA400});
+          break;
+        case 'KPD':
+            NewTaggedArray.push({tag:words.tag,word:words.word,color:pinkA400});
+          break;
+          case 'NMV':
+            NewTaggedArray.push({tag:words.tag,word:words.word,color:grey500});
+          break;
+          case 'KRV':
+            NewTaggedArray.push({tag:words.tag,word:words.word,color:deepPurpleA400});
+          break;
+          case 'NIP':
+            NewTaggedArray.push({tag:words.tag,word:words.word,color:cyanA400});
+          break;
+          case 'KRU':
+            NewTaggedArray.push({tag:words.tag,word:words.word,color:lightGreenA400});
+          break;
+          case 'UPS':
+            NewTaggedArray.push({tag:words.tag,word:words.word,color:yellowA200});
+          break;
+          case 'MIS':
+            NewTaggedArray.push({tag:words.tag,word:words.word,color:brown500});
+          break;
+
+        default:
+
+      }
+
+   });
+
+   this.setState({ tags: NewTaggedArray });
+   console.log(NewTaggedArray);
+
+ }
 
 
 
