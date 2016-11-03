@@ -32,7 +32,7 @@ class NavigationBar extends React.Component{
             />
         </div>
       );
-    }
+    }   
 
 }
 
