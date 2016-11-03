@@ -1,11 +1,19 @@
 import React from 'react';
 import { render } from 'react-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import NavigationBar from './components/navigation/NavigationBar.react';
+
+injectTapEventPlugin();
+
 
 class App extends React.Component{
 
       render(){
         return(
-             <h1>Hello Sinhala Parser</h1>
+          <MuiThemeProvider>
+             <NavigationBar/>
+          </MuiThemeProvider>
         );
       }
 
