@@ -5,9 +5,9 @@ import cydagre from 'cytoscape-dagre';
 import Chip from 'material-ui/Chip';
 import ReactTooltip from 'react-tooltip';
 import RaisedButton from 'material-ui/RaisedButton';
-import {blueA400,blueA300, indigoA400,pinkA400,redA400,purpleA400,deepPurpleA400,lightBlueA400,
-  cyanA400,tealA400,greenA400,lightGreenA400,limeA400,yellowA200,amberA400,orangeA400,
-  deepOrangeA400,brown500,blueGrey500,grey500
+import {deepPurpleA100,pinkA200,orangeA400,indigo400,greenA400,lightGreenA400,yellowA200,brown300,
+  lightBlue400,blueA400,blueA300, indigoA400,pinkA400,redA400,purpleA400,deepPurpleA400,lightBlueA400,
+  cyanA400,tealA400,limeA400,amberA400,deepOrangeA400,brown500,blueGrey500,grey500
 } from 'material-ui/styles/colors';
 
 cydagre( cytoscape, dagre );
@@ -33,10 +33,13 @@ class ParserTagBox extends React.Component{
   constructor(props) {
       super(props);
       this.state = {tagData: [
-        {word: 'ohu',tag:'NPD'},
+        {word: 'sudu',tag:'NMV'},
+        {word: 'nandha',tag:'NPD'},
+        {word: 'samaga',tag:'NIP'},
+        {word: 'amma',tag:'NPD'},
+        {word: 'ikmanin',tag:'KRV'},
         {word: 'gedara',tag:'NPD'},
-        {word: 'duwamin',tag:'KRV'},
-        {word: 'giyeeya',tag:'KPD'},
+        {word: 'paminiyaya',tag:'KPD'},
         ],
         tags:[]
    }
@@ -49,28 +52,28 @@ class ParserTagBox extends React.Component{
 
       switch (words.tag) {
         case 'NPD':
-            NewTaggedArray.push({tag:'Namapadha',word:words.word,color:blueA400});
+            NewTaggedArray.push({tag:words.tag,word:words.word,color:indigo400});
           break;
         case 'KPD':
-            NewTaggedArray.push({tag:words.tag,word:words.word,color:pinkA400});
+            NewTaggedArray.push({tag:words.tag,word:words.word,color:pinkA200});
           break;
-          case 'NMV':
-            NewTaggedArray.push({tag:words.tag,word:words.word,color:grey500});
+        case 'NMV':
+            NewTaggedArray.push({tag:words.tag,word:words.word,color:orangeA400});
           break;
-          case 'KRV':
-            NewTaggedArray.push({tag:words.tag,word:words.word,color:deepPurpleA400});
+        case 'KRV':
+            NewTaggedArray.push({tag:words.tag,word:words.word,color:lightBlue400});
           break;
-          case 'NIP':
-            NewTaggedArray.push({tag:words.tag,word:words.word,color:cyanA400});
-          break;
-          case 'KRU':
-            NewTaggedArray.push({tag:words.tag,word:words.word,color:lightGreenA400});
-          break;
-          case 'UPS':
+        case 'NIP':
             NewTaggedArray.push({tag:words.tag,word:words.word,color:yellowA200});
           break;
-          case 'MIS':
-            NewTaggedArray.push({tag:words.tag,word:words.word,color:brown500});
+        case 'KRU':
+            NewTaggedArray.push({tag:words.tag,word:words.word,color:lightGreenA400});
+          break;
+        case 'UPS':
+            NewTaggedArray.push({tag:words.tag,word:words.word,color:deepPurpleA100});
+          break;
+        case 'MK':
+            NewTaggedArray.push({tag:words.tag,word:words.word,color:brown300});
           break;
 
         default:
@@ -167,7 +170,7 @@ class ParserTagBox extends React.Component{
        <div>
          <RaisedButton secondary={true} label="tag" onTouchTap={this.tagger} />
          <div style={tagstyles.wrapper}>
-         {this.state.tags.map(this.renderTag, this)}
+          {this.state.tags.map(this.renderTag, this)}
          </div>
          <br/>
          <div id="cy" style={grapghstyle}></div>
