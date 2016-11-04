@@ -10,7 +10,7 @@ class Tagger:
     def __init__(self):
         print "Tagger running ..."
 
-    def tag(self, words):
+    def tag(self, user_input):
         # classes
         classes = ['KPD', 'KRW', 'NIP', 'NMP', 'NMV', 'UPS', 'MK', 'SAM']
 
@@ -22,11 +22,6 @@ class Tagger:
         stop_data = []
         data = []
 
-        # read test data from std input
-        test_data1 = words
-        # print type(test_data)
-        test_data = [x.strip(' ') for x in test_data1]
-        # test_data.replace(" ", "")
         f = file("./data/train.txt").read()
         for word in f.split():
             # append each word
@@ -51,7 +46,7 @@ class Tagger:
         train_vectors = vectorizer.fit_transform(train_data)
         # print train_vectors
         # print type(train_vectors)
-        test_vectors = vectorizer.transform(test_data)
+        test_vectors = vectorizer.transform(user_input)
         print test_vectors
         # print test_vectors
 
