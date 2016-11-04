@@ -10,7 +10,7 @@ class Tagger:
     def __init__(self):
         print "Tagger running ..."
 
-    def tag(self):
+    def tag(self, words):
         # classes
         classes = ['KPD', 'KRW', 'NIP', 'NMP', 'NMV', 'UPS', 'MK', 'SAM']
 
@@ -23,7 +23,7 @@ class Tagger:
         data = []
 
         # read test data from std input
-        test_data1 = raw_input("--Enter the sentence to be tagged-- ").split(" ")
+        test_data1 = words
         # print type(test_data)
         test_data = [x.strip(' ') for x in test_data1]
         # test_data.replace(" ", "")
@@ -68,3 +68,5 @@ class Tagger:
         print("Results for LinearSVC: ")
         print "prediction"
         print prediction_rbf
+
+        return prediction_rbf
