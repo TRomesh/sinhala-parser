@@ -13,83 +13,25 @@ import {deepPurpleA100,pinkA200,orangeA400,indigo400,greenA400,lightGreenA400,ye
 cydagre( cytoscape, dagre );
 
 const grapghstyle={
-  width:400,
-  height:400
+  marginLeft: 50,
+  width:800,
+  height:500
 };
-
-const tagstyles = {
-  tag: {
-    margin: 4,
-  },
-  wrapper: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  }
-};
-
 
 class ParserTagBox extends React.Component{
 
   constructor(props) {
-      super(props);
-      this.state = {tagData: [
-        {word: 'sudu',tag:'NMV'},
-        {word: 'nandha',tag:'NPD'},
-        {word: 'samaga',tag:'NIP'},
-        {word: 'amma',tag:'NPD'},
-        {word: 'ikmanin',tag:'KRV'},
-        {word: 'gedara',tag:'NPD'},
-        {word: 'paminiyaya',tag:'KPD'},
-        ],
-        tags:[]
-   }
-
+    super(props);
+      this.state = {
+        data: [{
+          id: '',
+          source: '',
+          target: ''
+        }]
+      }
   }
 
-  tagger = () => {
-   let NewTaggedArray = [];
-   this.state.tagData.map((words)=>{
-
-      switch (words.tag) {
-        case 'NPD':
-            NewTaggedArray.push({tag:words.tag,word:words.word,color:indigo400});
-          break;
-        case 'KPD':
-            NewTaggedArray.push({tag:words.tag,word:words.word,color:pinkA200});
-          break;
-        case 'NMV':
-            NewTaggedArray.push({tag:words.tag,word:words.word,color:orangeA400});
-          break;
-        case 'KRV':
-            NewTaggedArray.push({tag:words.tag,word:words.word,color:lightBlue400});
-          break;
-        case 'NIP':
-            NewTaggedArray.push({tag:words.tag,word:words.word,color:yellowA200});
-          break;
-        case 'KRU':
-            NewTaggedArray.push({tag:words.tag,word:words.word,color:lightGreenA400});
-          break;
-        case 'UPS':
-            NewTaggedArray.push({tag:words.tag,word:words.word,color:deepPurpleA100});
-          break;
-        case 'MK':
-            NewTaggedArray.push({tag:words.tag,word:words.word,color:brown300});
-          break;
-
-        default:
-
-      }
-
-   });
-
-   this.setState({ tags: NewTaggedArray });
-   console.log(NewTaggedArray);
-
- }
-
-
-
-   renderCytoscapeElement(){
+  renderCytoscapeElement(){
 
         console.log('* Cytoscape.js is rendering the graph..');
 
@@ -104,13 +46,14 @@ class ParserTagBox extends React.Component{
                 .selector('node')
                 .css({
                     'height': 80,
-                    'width': 80,
+                    'width': 120,
                     'background-fit': 'cover',
                     'border-color': pinkA400,
                     'border-width': 3,
                     'border-opacity': 0.5,
                     'content': 'data(id)',
                     'text-valign': 'center',
+                    'shape':'roundrectangle'
                 })
                 .selector('edge')
                 .css({
@@ -149,6 +92,10 @@ class ParserTagBox extends React.Component{
                 padding: 10
             }
             });
+        this.cy.userPanningEnabled( false );
+        this.cy.on('mouseover', 'node', function(evt){
+                    console.log( 'mouseover ' + this.id());
+                });
     }
 
     componentDidMount(){
@@ -156,23 +103,9 @@ class ParserTagBox extends React.Component{
     }
 
 
-    renderTag = (data,i) => {
-      return (
-       <div key={i}>
-      <Chip key={i} style={tagstyles.tag} data-tip={data.tag} backgroundColor={data.color}>{data.word}</Chip>
-      <ReactTooltip place="bottom" type="dark" effect="float"/>
-      </div>
-     );
-   }
-
    render(){
      return(
        <div>
-         <RaisedButton secondary={true} label="tag" onTouchTap={this.tagger} />
-         <div style={tagstyles.wrapper}>
-          {this.state.tags.map(this.renderTag, this)}
-         </div>
-         <br/>
          <div id="cy" style={grapghstyle}></div>
        </div>
      );
