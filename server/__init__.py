@@ -11,4 +11,6 @@ label = tagger.tag(words)
 
 tree = Tree()
 result = tree.depict_tree(words, label)
+result_json = tree.traverse_tree(result)
+print result_json
 result.draw()
