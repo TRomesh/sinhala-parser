@@ -1,21 +1,23 @@
 import React from 'react';
 import PaserBox from './PaserBox.react';
-import { Link } from 'react-router';
+import ParserTags from './ParserTags.react';
 import Parserlogo from './Parserlogo.react';
 import RaisedButton from 'material-ui/RaisedButton';
 
-
 class ParserContainer extends React.Component{
 
-      render(){
+    render(){
         return(
-          <div className="column">
-            <PaserBox/>
-            <Link to={"/tag"}><RaisedButton  secondary={true} label="Parse"/></Link>
-          </div>
+        	<div className="column">
+	          	<div className="col-lg-8">
+	          		<PaserBox/>
+	          	</div>
+	          	<div className="col-lg-4">
+	          		<ParserTags/>
+	          	</div>
+	        </div>
         );
-      }
-
+    }
 }
 
 export default ParserContainer;
