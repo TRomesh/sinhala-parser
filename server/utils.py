@@ -3,7 +3,6 @@ from server import Tagger, Tree
 
 
 class Parser:
-
     def treebuilder(self, data):
         words = data.split()
 
@@ -14,4 +13,3 @@ class Parser:
         result = tree.depict_tree(words, label)
         result_json = tree.traverse_tree(result)
         return result_json
-        #result.draw()
