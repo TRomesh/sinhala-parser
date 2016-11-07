@@ -1,8 +1,6 @@
-import random
-import string
-
 import cherrypy
 import utils
+
 
 @cherrypy.expose
 class WebService(object):
