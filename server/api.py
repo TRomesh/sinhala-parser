@@ -2,15 +2,15 @@ import random
 import string
 
 import cherrypy
+import utils
 
 @cherrypy.expose
 class WebService(object):
 
     @cherrypy.tools.accept(media='text/plain')
     def GET(self ,data):
-        # p = utils.Parser()
-        # p.treebuilder("sentence to be tagged as a query parameter 'data' ")
-        return 'using v1/api/GET ' + data
+         p = utils.Parser()
+         return p.treebuilder(data)
 
     def POST(self, data):
         return 'using v1/api/POST'
