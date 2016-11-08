@@ -58,29 +58,29 @@ class ParserTags extends React.Component{
           <div>
           	<div style={style}>
           		<Chip backgroundColor={indigo400} data-tip="Namapadha" onTouchTap={handleTouchTap} style={styles.chip}>
-	                Namapadha
+	                නාම පද
 	            </Chip>
 	            <ReactTooltip place="bottom" type="dark" effect="float"/>
 	            <Chip backgroundColor={pinkA200} onTouchTap={handleTouchTap} style={styles.chip}>
-	                Kriyapadha
+	                ක්‍රියා පද
 	            </Chip>
 	            <Chip backgroundColor={orangeA400} onTouchTap={handleTouchTap} style={styles.chip}>
-	                Namavisheshana
+	                නාම විශේෂණ
 	            </Chip>
 	            <Chip backgroundColor={lightBlue400} onTouchTap={handleTouchTap} style={styles.chip}>
-	                Kriyavisheshana
+	                ක්‍රියා විශේෂණ
 	            </Chip>
 	            <Chip backgroundColor={yellowA200} onTouchTap={handleTouchTap} style={styles.chip}>
-	                Nipatha
+	                නිපාත
 	            </Chip>
 	            <Chip backgroundColor={lightGreenA400} onTouchTap={handleTouchTap} style={styles.chip}>
-	                Krudhantha
+	                කෘදන්ත
 	            </Chip>
 	            <Chip backgroundColor={deepPurpleA100} onTouchTap={handleTouchTap} style={styles.chip}>
-	                Upasarga
+	                උපසර්ග
 	            </Chip>
 	            <Chip backgroundColor={brown300} onTouchTap={handleTouchTap} style={styles.chip}>
-	                Mishrakkriya
+	                මිෂ ක්‍රියා
 	            </Chip>
           	</div>
           </div>
