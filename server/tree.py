@@ -21,8 +21,12 @@ class Tree:
             result = parser.parse(self.sentence)
         return result
 
+    def create_json(self, tree):
+        json_value = self.traverse_tree(tree)
+        return "{\"S\":[" + json_value + "]}"
+
     def traverse_tree(self, tree):
-        value = ""
+        json_value = ""
         index = 1
         for subtree in tree:
             index += 1
@@ -39,9 +43,9 @@ class Tree:
             else:
                 inner_json_value = json.loads(json.dumps(subtree, ensure_ascii=False))
                 outer_json = self.create_inner_json(tree, index, inner_json_value)
-            value += outer_json
+            json_value += outer_json
 
-        return "{\"S\":[" + value + "]}"
+        return json_value
 
     def create_inner_json_subtree(self, inner_json_value):
         inner_json = "["
