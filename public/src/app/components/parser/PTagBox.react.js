@@ -100,5 +100,5 @@ export default class GoJs extends Component {
   }
 }
 
-GoJs.propTypes = { data: React.PropTypes.string.isRequired };
+GoJs.propTypes = { data: React.PropTypes.array.isRequired };
 GoJs.defaultProps = { data: [] };
