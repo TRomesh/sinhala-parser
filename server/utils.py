@@ -3,6 +3,8 @@ from server import Tagger, Tree
 
 
 class Parser:
+
+    @staticmethod
     def treebuilder(self, data):
         words = data.split()
 
