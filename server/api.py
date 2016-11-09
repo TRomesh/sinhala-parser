@@ -7,8 +7,7 @@ class WebService(object):
 
     @cherrypy.tools.accept(media='text/plain')
     def GET(self ,data):
-         p = utils.Parser()
-         return p.treebuilder(data)
+        return utils.Parser.treebuilder(data)
 
     def POST(self, data):
         return 'using v1/api/POST'
