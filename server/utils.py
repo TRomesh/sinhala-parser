@@ -13,5 +13,5 @@ class Parser:
 
         tree = Tree()
         result = tree.depict_tree(words, label)
-        result_json = tree.create_json(result)
+        result_json = tree.get_json_result(result)
         return result_json
