@@ -23,7 +23,7 @@ class Tree:
 
     def create_json(self, tree):
         json_value = self.__traverse_tree(tree)
-        return "{\"S\":[" + json_value + "]}"
+        return "{\"SENTENCE\":[" + json_value + "]}"
 
     def __traverse_tree(self, tree):
         json_value = ""
