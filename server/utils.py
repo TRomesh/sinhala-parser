@@ -5,7 +5,7 @@ from server import Tagger, Tree
 class Parser:
 
     @staticmethod
-    def treebuilder(self, data):
+    def tree_builder(data):
         words = data.split()
 
         tagger = Tagger()
