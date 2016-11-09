@@ -4,7 +4,21 @@ import AppBar from 'material-ui/AppBar';
 import Parserlogo from '../parser/Parserlogo.react';
 import FlatButton from 'material-ui/FlatButton';
 import IconButton from 'material-ui/IconButton';
+import SPlogo from '../../media/images/logo.png';
+import RaisedButton from 'material-ui/RaisedButton';
+import {fullWhite} from 'material-ui/styles/colors';
+import ActionAndroid from 'material-ui/svg-icons/action/android';
+import FontIcon from 'material-ui/FontIcon';
 
+
+const style = {
+  margin: 12,
+};
+
+const logoStyle = {
+   width:80,
+   height:60
+};
 
 const ButtonStyle = {
 
@@ -19,14 +33,12 @@ const ButtonStyle = {
 
 class NavigationBar extends React.Component{
 
-
-
-
       render(){
         return(
           <div>
           <AppBar
-            title="Sinhala Parser"
+            title={<div><Link to="/parser"><img src={SPlogo} style={logoStyle}/></Link>Sinhala Parser</div>}
+            showMenuIconButton={false}
             iconElementRight={
               <div className="row"  style={ButtonStyle.buttondivStyle} >
               <Link to="/contribute"><FlatButton className="col-xs-6 col-sm-6 col-md-6" style={ButtonStyle.buttonlabelStyle} label="Contribute" /></Link>
