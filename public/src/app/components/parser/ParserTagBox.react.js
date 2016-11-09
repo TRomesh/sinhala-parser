@@ -101,6 +101,227 @@ const nodeDataArray = [
         ]
       };
 
+var tagdata1 = {
+  "Sentence": [
+    {
+      "NP": [
+        {
+          "NMP": "වලාකුළු"
+        }
+      ]
+    },
+    {
+      "NIP": "අතරින්"
+    },
+    {
+      "VP": [
+        {
+          "KPD": "එබී"
+        }
+      ]
+    },
+    {
+      "VP": [
+        {
+          "KPD": "බලන"
+        },
+        {
+          "NP": [
+            {
+              "NMP": "සුපුන්"
+            },
+            {
+              "NMP": "සද"
+            }
+          ]
+        },
+        {
+          "NP": [
+            {
+              "NMP": "සිය"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "SAM": "රැස්දහරා"
+    },
+    {
+      "MK": "පතුරවමින්"
+    },
+    {
+      "NP": [
+        {
+          "NMP": "අප"
+        },
+        {
+          "NMP": "සිත්"
+        }
+      ]
+    },
+    {
+      "NP": [
+        {
+          "NMP": "පුබුදු"
+        }
+      ]
+    },
+    {
+      "KPD": "කරයි"
+    }
+  ]
+};
+
+var tagdata2 = {
+  "Sentence": [
+    {
+      "NP": [
+        {
+          "NMP": "ඔවුන්"
+        },
+        {
+          "NMP": "දෙදෙනාගේ"
+        }
+      ]
+    },
+    {
+      "NP": [
+        {
+          "NMP": "ආදරයට"
+        },
+        {
+          "NMP": "දෙමාපියන්ගේ"
+        }
+      ]
+    },
+    {
+      "KRW": "ආශිර්වාදය"
+    },
+    {
+      "NP": [
+        {
+          "NMP": "ලැබුණි"
+        }
+      ]
+    }
+  ]
+};
+
+var tagdata3 = {
+  "Sentence": [
+    {
+      "NP": [
+        {
+          "NMP": "රාජ"
+        },
+        {
+          "NMP": "කුමාරයාගේ"
+        }
+      ]
+    },
+    {
+      "VP": [
+        {
+          "KPD": "රාජාභිෂේකය"
+        },
+        {
+          "NP": [
+            {
+              "NMP": "නිමිත්තෙන්"
+            },
+            {
+              "NMP": "රටවැසියෝ"
+            }
+          ]
+        },
+        {
+          "NP": [
+            {
+              "NMP": "ප්‍රීතිඝෝෂා"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "KPD,": "පැවැත්වුවෝය"
+    }
+  ]
+};
+
+var tagdata4 ={
+  "Sentence": [
+    {
+      "NP": [
+        {
+          "NMP": "විභාගය"
+        }
+      ]
+    },
+    {
+      "VP": [
+        {
+          "KPD": "අසමත්"
+        },
+        {
+          "NP": [
+            {
+              "NMP": "වූ"
+            },
+            {
+              "NMP": "නිසා"
+            }
+          ]
+        },
+        {
+          "NP": [
+            {
+              "NMP": "ඇයට"
+            },
+            {
+              "NMP": "නැවත"
+            }
+          ]
+        },
+        {
+          "NP": [
+            {
+              "NMP": "මුදල්"
+            },
+            {
+              "NMP": "ගෙවා"
+            }
+          ]
+        },
+        {
+          "NP": [
+            {
+              "NMP": "විභාගය"
+            },
+            {
+              "NMP": "කිරිර්මට"
+            }
+          ]
+        },
+        {
+          "NP": [
+            {
+              "NMP": "සිදු"
+            },
+            {
+              "NMP": "විය"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+
+
+
 class ParserTagBox extends React.Component{
 
   constructor(props) {
@@ -114,7 +335,45 @@ class ParserTagBox extends React.Component{
       }
   }
 
+  fillColor = (data) => {
+
+          switch (data) {
+            case 'NPD':
+                return {indigo400};
+              break;
+            case 'KPD':
+                return pinkA200;
+              break;
+            case 'NMV':
+                return orangeA400;
+              break;
+            case 'KRV':
+                return lightBlue400;
+              break;
+            case 'NIP':
+                return yellowA200;
+              break;
+            case 'KRU':
+                return lightGreenA400;
+              break;
+            case 'UPS':
+                return deepPurpleA100;
+              break;
+            case 'MK':
+                return brown300;
+              break;
+
+            default:
+             return pinkA200;
+
+          }
+
+    };
+
+
+
   listItems = (obj) => {
+
      var key = 0;
      return (function recurse(obj, parent = undefined) {
          return Object(obj) !== obj ? { key: ++key,fill: blueA400, stroke: "#4d90fe", text: obj, parent }
@@ -124,12 +383,13 @@ class ParserTagBox extends React.Component{
                      acc.concat({ key: ++key,fill: pinkA200, stroke: "#4d90fe", text, parent },
                                  recurse(obj[text], key)), []);
      })(obj);
+
  }
 
    render(){
      return(
        <div>
-         <PTagBox data={this.listItems(tagdata)} />
+         <PTagBox data={this.listItems(tagdata1)} />
        </div>
      );
    }
