@@ -58,6 +58,49 @@ const nodeDataArray = [
         { key: 36, text: ".", fill: "#f8f8f8", stroke: "#4d90fe", parent: 35 }
       ];
 
+
+      var tagdata= {
+        "Sentence": [
+          {
+            "NP": [
+              {
+                "NMP": "මුහුදු"
+              },
+              {
+                "NMP": "වෙරළට"
+              }
+            ]
+          },
+          {
+            "VP": [
+              {
+                "KPD": "එන"
+              },
+              {
+                "NP": [
+                  {
+                    "NMP": "රළපෙළ"
+                  },
+                  {
+                    "NMP": "සුදු"
+                  }
+                ]
+              },
+              {
+                "NP": [
+                  {
+                    "NMP": "සාරියක්"
+                  },
+                  {
+                    "NMP": "මෙන්ය"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      };
+
 class ParserTagBox extends React.Component{
 
   constructor(props) {
@@ -71,82 +114,22 @@ class ParserTagBox extends React.Component{
       }
   }
 
-  renderCytoscapeElement(){
-
-        console.log('* Cytoscape.js is rendering the graph..');
-
-        this.cy = cytoscape(
-        {
-            container: document.getElementById('cy'),
-
-            boxSelectionEnabled: false,
-            autounselectify: true,
-
-            style: cytoscape.stylesheet()
-                .selector('node')
-                .css({
-                    'height': 80,
-                    'width': 120,
-                    'background-fit': 'cover',
-                    'border-color': pinkA400,
-                    'border-width': 3,
-                    'border-opacity': 0.5,
-                    'content': 'data(id)',
-                    'text-valign': 'center',
-                    'shape':'roundrectangle'
-                })
-                .selector('edge')
-                .css({
-                    'width': 6,
-                    'target-arrow-shape': 'triangle',
-                    'line-color': blueA400,
-                    'target-arrow-color': blueA400,
-                    'curve-style': 'bezier'
-                })
-                ,
-            elements: {
-                nodes: [
-
-                    { data: { id: 'bird' } },
-                    { data: { id: 'ladybug' } },
-                    { data: { id: 'aphid' } },
-                    { data: { id: 'rose' } },
-                    { data: { id: 'grasshopper' } },
-                    { data: { id: 'plant' } },
-                    { data: { id: 'wheat' } }
-                ],
-                edges: [
-
-                    { data: { source: 'bird', target: 'ladybug' } },
-                    { data: { source: 'bird', target: 'grasshopper' } },
-                    { data: { source: 'grasshopper', target: 'plant' } },
-                    { data: { source: 'grasshopper', target: 'wheat' } },
-                    { data: { source: 'ladybug', target: 'aphid' } },
-                    { data: { source: 'aphid', target: 'rose' } }
-                ]
-            },
-
-            layout: {
-                name: 'breadthfirst',
-                directed: true,
-                padding: 10
-            }
-            });
-        this.cy.userPanningEnabled( false );
-        this.cy.on('mouseover', 'node', function(evt){
-                    console.log( 'mouseover ' + this.id());
-                });
-    }
-
-    componentDidMount(){
-     this.renderCytoscapeElement();
-    }
-
+  listItems = (obj) => {
+     var key = 0;
+     return (function recurse(obj, parent = undefined) {
+         return Object(obj) !== obj ? { key: ++key,fill: blueA400, stroke: "#4d90fe", text: obj, parent }
+             :   Array.isArray(obj) ? Object.keys(obj).reduce( (acc, text) =>
+                     acc.concat(recurse(obj[text], parent)), [])
+             :   Object.keys(obj).reduce( (acc, text) =>
+                     acc.concat({ key: ++key,fill: pinkA200, stroke: "#4d90fe", text, parent },
+                                 recurse(obj[text], key)), []);
+     })(obj);
+ }
 
    render(){
      return(
        <div>
-         <PTagBox data={nodeDataArray} />
+         <PTagBox data={this.listItems(tagdata)} />
        </div>
      );
    }
