@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import SPlogo from '../../media/images/SP.png';
+import SPlogo from '../../media/images/logo.png';
 
 const logoStyle = {
    width:120,
