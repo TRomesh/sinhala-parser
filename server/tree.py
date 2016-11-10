@@ -3,6 +3,7 @@ import nltk
 import json
 
 from nltk.chunk.regexp import *
+from dicttoxml import dicttoxml
 
 
 class Tree:
@@ -21,9 +22,14 @@ class Tree:
             result = parser.parse(self.sentence)
         return result
 
-    def create_json(self, tree):
+    def get_json_result(self, tree):
         json_value = self.__traverse_tree(tree)
-        return "{\"S\":[" + json_value + "]}"
+        return "{\"SENTENCE\":[" + json_value + "]}"
+
+    def get_xml_result(self, tree):
+        json_value = json.loads(self.get_json_result(tree))
+        xml_value = dicttoxml(json_value)
+        return xml_value
 
     def __traverse_tree(self, tree):
         json_value = ""
