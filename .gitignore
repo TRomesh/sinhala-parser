@@ -96,3 +96,6 @@ ENV/
 #webapp stuff
 node_modules/
 dist/
+
+#python log files
+server/logs
