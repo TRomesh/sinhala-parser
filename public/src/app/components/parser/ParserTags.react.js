@@ -39,10 +39,14 @@ class ParserTags extends React.Component{
   constructor(props) {
     super(props);
       this.state = {chipData: [
-	      {tag: 0, word: 'Angular'},
-	      {tag: 1, word: 'JQuery'},
-	      {tag: 2, word: 'Polymer'},
-	      {tag: 3, word: 'ReactJS'},
+	      {tag: 0, word: 'නාම පද'},
+	      {tag: 1, word: 'ක්‍රියා පද'},
+	      {tag: 2, word: 'නාම විශේෂණ'},
+	      {tag: 3, word: 'ක්‍රියා විශේෂණ'},
+        {tag: 4, word: 'නිපාත'},
+        {tag: 5, word: 'කෘදන්ත'},
+        {tag: 6, word: 'උපසර්ග'},
+        {tag: 7, word: 'මිශ්‍ර ක්‍රියා'},
   		]}
 	}
 

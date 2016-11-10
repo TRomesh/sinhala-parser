@@ -59,47 +59,47 @@ const nodeDataArray = [
       ];
 
 
-var tagdata= {
-  "Sentence": [
-    {
-      "NP": [
-        {
-          "NMP": "මුහුදු"
-        },
-        {
-          "NMP": "වෙරළට"
-        }
-      ]
-    },
-    {
-      "VP": [
-        {
-          "KPD": "එන"
-        },
-        {
-          "NP": [
-            {
-              "NMP": "රළපෙළ"
-            },
-            {
-              "NMP": "සුදු"
-            }
-          ]
-        },
+      var tagdata= {
+        "Sentence": [
           {
             "NP": [
-            {
-              "NMP": "සාරියක්"
-            },
-            {
-              "NMP": "මෙන්ය"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-};
+              {
+                "NMP": "මුහුදු"
+              },
+              {
+                "NMP": "වෙරළට"
+              }
+            ]
+          },
+          {
+            "VP": [
+              {
+                "KPD": "එන"
+              },
+              {
+                "NP": [
+                  {
+                    "NMP": "රළපෙළ"
+                  },
+                  {
+                    "NMP": "සුදු"
+                  }
+                ]
+              },
+              {
+                "NP": [
+                  {
+                    "NMP": "සාරියක්"
+                  },
+                  {
+                    "NMP": "මෙන්ය"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      };
 
 var tagdata1 = {
   "Sentence": [
@@ -319,6 +319,9 @@ var tagdata4 ={
   ]
 };
 
+
+
+
 class ParserTagBox extends React.Component{
 
   constructor(props) {
@@ -334,59 +337,64 @@ class ParserTagBox extends React.Component{
 
   fillColor = (data) => {
 
-    switch (data) {
-      case 'NPD':
-        return {indigo400};
-        break;
-      case 'KPD':
-        return pinkA200;
-        break;
-      case 'NMV':
-        return orangeA400;
-        break;
-      case 'KRV':
-        return lightBlue400;
-        break;
-      case 'NIP':
-        return yellowA200;
-        break;
-      case 'KRU':
-        return lightGreenA400;
-        break;
-      case 'UPS':
-        return deepPurpleA100;
-        break;
-      case 'MK':
-        return brown300;
-        break;
-      default:
-        return pinkA200;
+          switch (data) {
+            case 'NPD':
+                return {indigo400};
+              break;
+            case 'KPD':
+                return pinkA200;
+              break;
+            case 'NMV':
+                return orangeA400;
+              break;
+            case 'KRV':
+                return lightBlue400;
+              break;
+            case 'NIP':
+                return yellowA200;
+              break;
+            case 'KRU':
+                return lightGreenA400;
+              break;
+            case 'UPS':
+                return deepPurpleA100;
+              break;
+            case 'MK':
+                return brown300;
+              break;
 
-    }
+            default:
+             return pinkA200;
 
-  };
+          }
+
+    };
+
+
 
   listItems = (obj) => {
 
-    var key = 0;
-      return (function recurse(obj, parent = undefined) {
-          return Object(obj) !== obj ? { key: ++key,fill: blueA400, stroke: "#4d90fe", text: obj, parent }
-              :   Array.isArray(obj) ? Object.keys(obj).reduce( (acc, text) =>
+     var key = 0;
+     return (function recurse(obj, parent = undefined) {
+         return Object(obj) !== obj ? { key: ++key,fill: blueA400, stroke: "#4d90fe", text: obj, parent }
+             :   Array.isArray(obj) ? Object.keys(obj).reduce( (acc, text) =>
                      acc.concat(recurse(obj[text], parent)), [])
-              :   Object.keys(obj).reduce( (acc, text) =>
+             :   Object.keys(obj).reduce( (acc, text) =>
                      acc.concat({ key: ++key,fill: pinkA200, stroke: "#4d90fe", text, parent },
                                  recurse(obj[text], key)), []);
-    })(obj);
+     })(obj);
 
-  }
+ }
 
-  render(){
-    return(
-      <div>
-        <PTagBox data={this.listItems(tagdata1)} />
-      </div>
-    );
-  }
+
+
+   render(){
+     return(
+       <div>
+         <PTagBox data={this.listItems(this.props.mytag)} />
+       </div>
+     );
+   }
 
 }
 
