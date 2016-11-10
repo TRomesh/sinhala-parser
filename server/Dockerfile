@@ -11,8 +11,8 @@ pip install nltk==3.2.1 && \
 pip install cherrypy==8.1.2 && \
 pip install scikit-learn==0.17
 
-COPY . /opt
+COPY . /opt/app/server
 
 EXPOSE 8080
 
-CMD ["python","/opt/server/api.py"]
+CMD ["python","/opt/app/server/api.py"]
