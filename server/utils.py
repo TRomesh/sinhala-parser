@@ -3,7 +3,9 @@ from server import Tagger, Tree
 
 
 class Parser:
-    def treebuilder(self, data):
+
+    @staticmethod
+    def tree_builder(data):
         words = data.split()
 
         tagger = Tagger()
@@ -11,5 +13,5 @@ class Parser:
 
         tree = Tree()
         result = tree.depict_tree(words, label)
-        result_json = tree.traverse_tree(result)
+        result_json = tree.get_json_result(result)
         return result_json

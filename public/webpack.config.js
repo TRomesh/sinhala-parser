@@ -22,7 +22,7 @@ var config = {
             },
             {
                 test: /\.jpe?g$|\.gif$|\.png$/i,
-                loader: 'file-loader'
+                loader: 'file-loader?name=[name].[ext]'
             }
         ]
     }

@@ -116,13 +116,13 @@ class PaserBox extends React.Component{
       parse = () =>{
         let val = true;
         let status = this.refs.textinput.getValue();
-                  
+
         if(validatebox(status).error) {
           this.setState({
             textStatus: validatebox(status).error
           });
           val = false;
-        } 
+        }
         else {
 
           this.tagger();
@@ -160,7 +160,7 @@ class PaserBox extends React.Component{
           <div>
             <Paper className="row" style={style} zDepth={1}>
               <div className="col-xs-12 col-sm-12 col-md-12">
-                <TextField fullWidth={true} style={textfieldstyle} errorText={this.state.textStatus} ref="textinput" id="MesageBox" onKeyPress={this.EnterKey} multiLine={true} rows={1} rowsMax={6} hintText="Please enter a sentence to be parsed..."/>
+                <TextField fullWidth={true} style={textfieldstyle} errorText={this.state.textStatus} ref="textinput" id="MesageBox" onKeyPress={this.EnterKey} hintText="Please enter a sentence to be parsed..."/>
               </div>
             <div className="col-xs-9 col-sm-9 col-md-9"/>
             <div className="col-xs-3 col-sm-3 col-md-3">
