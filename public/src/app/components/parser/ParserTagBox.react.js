@@ -386,10 +386,12 @@ class ParserTagBox extends React.Component{
 
  }
 
+
+
    render(){
      return(
        <div>
-         <PTagBox data={this.listItems(tagdata1)} />
+         <PTagBox data={this.listItems(this.props.mytag)} />
        </div>
      );
    }

@@ -9,14 +9,13 @@ const logoStyle = {
 
 class Parserlogo extends React.Component{
 
-      render(){
+    render(){
         return(
-          <div>
-            <Link to={"/parser"} ><img src={SPlogo} style={logoStyle}/></Link>
-          </div>
+        	<div>
+            	<Link to={"/parser"} ><img src={SPlogo} style={logoStyle}/></Link>
+          	</div>
         );
-      }
-
+    }
 }
 
 export default Parserlogo;
