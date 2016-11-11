@@ -1,12 +1,16 @@
 # coding: utf-8
-from server import Tagger, Tree
+import os
 import logging
+
+from server import Tagger, Tree
 
 
 class Parser:
 
     def __init__(self):
         self.logger = logging.getLogger('sinhala-parser')
+        if not os.path.exists('logs'):
+            os.makedirs('logs')
         logger_handler = logging.FileHandler('logs/sinhala-parser.log')
         logger_format = '%(asctime)-s - %(levelname)s : %(message)s'
         logger_handler.setFormatter(logging.Formatter(logger_format))
