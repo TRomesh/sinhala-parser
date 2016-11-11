@@ -22,7 +22,7 @@ class Tagger:
         stop_data = []
         data = []
 
-        f = file("./data/train.txt").read()
+        f = file(os.path.dirname(os.path.abspath(__file__)) + "/data/train.txt").read()
         for word in f.split():
             # append each word
             data.append(word)

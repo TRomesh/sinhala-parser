@@ -5,9 +5,10 @@ import utils
 @cherrypy.expose
 class WebService(object):
 
-    @cherrypy.tools.accept(media='text/plain')
     def GET(self, data):
-        return utils.Parser.tree_builder(data)
+        if cherrypy.request.headers['Accept'] == 'application/xml':
+            return utils.Parser.tree_builder_xml(data)
+        return utils.Parser.tree_builder_json(data)
 
     def POST(self, data):
         return 'using v1/api/POST'
@@ -28,4 +29,10 @@ if __name__ == '__main__':
             'tools.response_headers.headers': [('Content-Type', 'text/plain')],
         }
     }
+
+    cherrypy.config.update({ 
+        'server.socket_host': '0.0.0.0',
+        'server.socket_port': 8080,
+    })
+
     cherrypy.quickstart(WebService(), '/v1/api', conf)

@@ -58,6 +58,270 @@ const nodeDataArray = [
         { key: 36, text: ".", fill: "#f8f8f8", stroke: "#4d90fe", parent: 35 }
       ];
 
+
+      var tagdata= {
+        "Sentence": [
+          {
+            "NP": [
+              {
+                "NMP": "මුහුදු"
+              },
+              {
+                "NMP": "වෙරළට"
+              }
+            ]
+          },
+          {
+            "VP": [
+              {
+                "KPD": "එන"
+              },
+              {
+                "NP": [
+                  {
+                    "NMP": "රළපෙළ"
+                  },
+                  {
+                    "NMP": "සුදු"
+                  }
+                ]
+              },
+              {
+                "NP": [
+                  {
+                    "NMP": "සාරියක්"
+                  },
+                  {
+                    "NMP": "මෙන්ය"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      };
+
+var tagdata1 = {
+  "Sentence": [
+    {
+      "NP": [
+        {
+          "NMP": "වලාකුළු"
+        }
+      ]
+    },
+    {
+      "NIP": "අතරින්"
+    },
+    {
+      "VP": [
+        {
+          "KPD": "එබී"
+        }
+      ]
+    },
+    {
+      "VP": [
+        {
+          "KPD": "බලන"
+        },
+        {
+          "NP": [
+            {
+              "NMP": "සුපුන්"
+            },
+            {
+              "NMP": "සද"
+            }
+          ]
+        },
+        {
+          "NP": [
+            {
+              "NMP": "සිය"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "SAM": "රැස්දහරා"
+    },
+    {
+      "MK": "පතුරවමින්"
+    },
+    {
+      "NP": [
+        {
+          "NMP": "අප"
+        },
+        {
+          "NMP": "සිත්"
+        }
+      ]
+    },
+    {
+      "NP": [
+        {
+          "NMP": "පුබුදු"
+        }
+      ]
+    },
+    {
+      "KPD": "කරයි"
+    }
+  ]
+};
+
+var tagdata2 = {
+  "Sentence": [
+    {
+      "NP": [
+        {
+          "NMP": "ඔවුන්"
+        },
+        {
+          "NMP": "දෙදෙනාගේ"
+        }
+      ]
+    },
+    {
+      "NP": [
+        {
+          "NMP": "ආදරයට"
+        },
+        {
+          "NMP": "දෙමාපියන්ගේ"
+        }
+      ]
+    },
+    {
+      "KRW": "ආශිර්වාදය"
+    },
+    {
+      "NP": [
+        {
+          "NMP": "ලැබුණි"
+        }
+      ]
+    }
+  ]
+};
+
+var tagdata3 = {
+  "Sentence": [
+    {
+      "NP": [
+        {
+          "NMP": "රාජ"
+        },
+        {
+          "NMP": "කුමාරයාගේ"
+        }
+      ]
+    },
+    {
+      "VP": [
+        {
+          "KPD": "රාජාභිෂේකය"
+        },
+        {
+          "NP": [
+            {
+              "NMP": "නිමිත්තෙන්"
+            },
+            {
+              "NMP": "රටවැසියෝ"
+            }
+          ]
+        },
+        {
+          "NP": [
+            {
+              "NMP": "ප්‍රීතිඝෝෂා"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "KPD,": "පැවැත්වුවෝය"
+    }
+  ]
+};
+
+var tagdata4 ={
+  "Sentence": [
+    {
+      "NP": [
+        {
+          "NMP": "විභාගය"
+        }
+      ]
+    },
+    {
+      "VP": [
+        {
+          "KPD": "අසමත්"
+        },
+        {
+          "NP": [
+            {
+              "NMP": "වූ"
+            },
+            {
+              "NMP": "නිසා"
+            }
+          ]
+        },
+        {
+          "NP": [
+            {
+              "NMP": "ඇයට"
+            },
+            {
+              "NMP": "නැවත"
+            }
+          ]
+        },
+        {
+          "NP": [
+            {
+              "NMP": "මුදල්"
+            },
+            {
+              "NMP": "ගෙවා"
+            }
+          ]
+        },
+        {
+          "NP": [
+            {
+              "NMP": "විභාගය"
+            },
+            {
+              "NMP": "කිරිර්මට"
+            }
+          ]
+        },
+        {
+          "NP": [
+            {
+              "NMP": "සිදු"
+            },
+            {
+              "NMP": "විය"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+
+
+
 class ParserTagBox extends React.Component{
 
   constructor(props) {
@@ -71,82 +335,61 @@ class ParserTagBox extends React.Component{
       }
   }
 
-  renderCytoscapeElement(){
+  fillColor = (data) => {
 
-        console.log('* Cytoscape.js is rendering the graph..');
+          switch (data) {
+            case 'NPD':
+                return {indigo400};
+              break;
+            case 'KPD':
+                return pinkA200;
+              break;
+            case 'NMV':
+                return orangeA400;
+              break;
+            case 'KRV':
+                return lightBlue400;
+              break;
+            case 'NIP':
+                return yellowA200;
+              break;
+            case 'KRU':
+                return lightGreenA400;
+              break;
+            case 'UPS':
+                return deepPurpleA100;
+              break;
+            case 'MK':
+                return brown300;
+              break;
 
-        this.cy = cytoscape(
-        {
-            container: document.getElementById('cy'),
+            default:
+             return pinkA200;
 
-            boxSelectionEnabled: false,
-            autounselectify: true,
+          }
 
-            style: cytoscape.stylesheet()
-                .selector('node')
-                .css({
-                    'height': 80,
-                    'width': 120,
-                    'background-fit': 'cover',
-                    'border-color': pinkA400,
-                    'border-width': 3,
-                    'border-opacity': 0.5,
-                    'content': 'data(id)',
-                    'text-valign': 'center',
-                    'shape':'roundrectangle'
-                })
-                .selector('edge')
-                .css({
-                    'width': 6,
-                    'target-arrow-shape': 'triangle',
-                    'line-color': blueA400,
-                    'target-arrow-color': blueA400,
-                    'curve-style': 'bezier'
-                })
-                ,
-            elements: {
-                nodes: [
+    };
 
-                    { data: { id: 'bird' } },
-                    { data: { id: 'ladybug' } },
-                    { data: { id: 'aphid' } },
-                    { data: { id: 'rose' } },
-                    { data: { id: 'grasshopper' } },
-                    { data: { id: 'plant' } },
-                    { data: { id: 'wheat' } }
-                ],
-                edges: [
 
-                    { data: { source: 'bird', target: 'ladybug' } },
-                    { data: { source: 'bird', target: 'grasshopper' } },
-                    { data: { source: 'grasshopper', target: 'plant' } },
-                    { data: { source: 'grasshopper', target: 'wheat' } },
-                    { data: { source: 'ladybug', target: 'aphid' } },
-                    { data: { source: 'aphid', target: 'rose' } }
-                ]
-            },
 
-            layout: {
-                name: 'breadthfirst',
-                directed: true,
-                padding: 10
-            }
-            });
-        this.cy.userPanningEnabled( false );
-        this.cy.on('mouseover', 'node', function(evt){
-                    console.log( 'mouseover ' + this.id());
-                });
-    }
+  listItems = (obj) => {
 
-    componentDidMount(){
-     this.renderCytoscapeElement();
-    }
+     var key = 0;
+     return (function recurse(obj, parent = undefined) {
+         return Object(obj) !== obj ? { key: ++key,fill: blueA400, stroke: "#4d90fe", text: obj, parent }
+             :   Array.isArray(obj) ? Object.keys(obj).reduce( (acc, text) =>
+                     acc.concat(recurse(obj[text], parent)), [])
+             :   Object.keys(obj).reduce( (acc, text) =>
+                     acc.concat({ key: ++key,fill: pinkA200, stroke: "#4d90fe", text, parent },
+                                 recurse(obj[text], key)), []);
+     })(obj);
 
+ }
 
    render(){
      return(
        <div>
-         <PTagBox data={nodeDataArray} />
+         <PTagBox data={this.listItems(tagdata1)} />
        </div>
      );
    }
