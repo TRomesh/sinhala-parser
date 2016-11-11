@@ -2,7 +2,8 @@
 import os
 import logging
 
-from server import Tagger, Tree
+from tagger import Tagger
+from tree import Tree
 
 
 class Parser:
