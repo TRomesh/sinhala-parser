@@ -18,9 +18,16 @@ var DATA=[];
 const style = {
   height: 120,
   width: 650,
-  margin: 50,
+  marginLeft: 50,
+  marginTop: 50,
   display: 'inline-block',
   padding: 10
+};
+
+const styles = {
+  marginLeft: 50,
+  marginTop: 10,
+  marginBottom: 50
 };
 
 const textfieldstyle = {
@@ -37,7 +44,6 @@ const tagstyles = {
     flexWrap: 'wrap',
   }
 };
-
 
 const validatebox = (textStatus) => {
 
@@ -56,8 +62,6 @@ const validatebox = (textStatus) => {
 
 
 class PaserBox extends React.Component{
-
-
 
       constructor(props) {
             super(props);
@@ -79,7 +83,7 @@ class PaserBox extends React.Component{
             };
       };
 
-      tagger = () => {
+/*        tagger = () => {
         let NewTaggedArray = [];
         this.state.tagData.map((words)=>{
 
@@ -118,7 +122,16 @@ class PaserBox extends React.Component{
         //this.setState({ tags: NewTaggedArray });
         console.log(NewTaggedArray);
 
-      };
+  };
+
+        renderTag = (data,i) => {
+        return (
+          <div key={i}>
+            <Chip key={i} style={tagstyles.tag} data-tip={data.tag} backgroundColor={data.color}>{data.word}</Chip>
+            <ReactTooltip place="bottom" type="dark" effect="float"/>
+          </div>
+        );
+      };*/
 
       parse = () =>{
         let val = true;
@@ -133,48 +146,24 @@ class PaserBox extends React.Component{
         else {
 
             axios.get('http://35.163.71.75/v1/api/'+status)
-            .then((response)=>{
-              console.log('menna response');
-                console.log(response.data);
-               this.setState({
-                 tags:response.data
-               });
-               DATA=<ParserTagBox style={style} mytag={this.state.tags}/>;
-              console.log('menna state');
-               console.log(this.state.tags);
+            .then((response)=> {
+
+                this.setState({
+                  tags:response.data
+                });
+
+                DATA=<ParserTagBox style={style} mytag={this.state.tags}/>;
 
             }).catch((err)=>{
-              console.log('menna error');
-              console.log(err);
+                console.log(err);
             });
 
-
-          this.tagger();
-          //<Link to={"/tag"}><RaisedButton  secondary={true} label="Parse"/></Link>
-          console.log(status);
           //this.cleartext();
-          this.setState({
-            statusText: ''
-           });
+          //this.setState({
+          //  textStatus: ''
+          // });
         }
             //this.clearText();
-      };
-
-      renderTag = (data,i) => {
-        return (
-          <div key={i}>
-            <Chip key={i} style={tagstyles.tag} data-tip={data.tag} backgroundColor={data.color}>{data.word}</Chip>
-            <ReactTooltip place="bottom" type="dark" effect="float"/>
-          </div>
-        );
-      };
-
-      rendertreeTag = (data) => {
-        if(data.length>0){
-        return (
-        <ParserTagBox style={style} mytag={data}/>
-        );
-       }
       };
 
       cleartext = () =>{
@@ -187,13 +176,12 @@ class PaserBox extends React.Component{
           }
       };
 
-
       render(){
         return(
           <div>
             <Paper className="row" style={style} zDepth={1}>
               <div className="col-xs-12 col-sm-12 col-md-12">
-                <TextField fullWidth={true} style={textfieldstyle} errorText={this.state.textStatus} ref="textinput" id="MesageBox" onKeyPress={this.EnterKey} hintText="Please enter a sentence to be parsed..."/>
+                <TextField fullWidth={true} style={textfieldstyle} errorText={this.state.textStatus} ref="textinput" id="MesageBox" onKeyPress={this.EnterKey} hintText="කරුණාකර සම්පුර්ණ වාක්‍යයක් ඇතුල් කරන්න ..."/>
               </div>
             <div className="col-xs-9 col-sm-9 col-md-9"/>
             <div className="col-xs-3 col-sm-3 col-md-3">
@@ -201,6 +189,8 @@ class PaserBox extends React.Component{
             </div>
             <div className="col-xs-1 col-sm-1 col-md-1"/>
             </Paper>
+            <label style={styles}>සැලකිය යුතුයි : මෙම ක්‍රියාවලිය හොදින් වැඩ කිරීමට නම් නිවැරදි ව්‍යාකරණ සහිත වාක්‍ය ඇතුල් කරන්න</label>
+            <br/>
              {DATA}
             <br/>
             <br/>
