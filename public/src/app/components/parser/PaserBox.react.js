@@ -10,6 +10,10 @@ import {deepPurpleA100,pinkA200,orangeA400,indigo400,greenA400,lightGreenA400,ye
 } from 'material-ui/styles/colors';
 import Chip from 'material-ui/Chip';
 import ReactTooltip from 'react-tooltip';
+import axios from 'axios';
+
+
+var DATA=[];
 
 const style = {
   height: 120,
@@ -53,6 +57,8 @@ const validatebox = (textStatus) => {
 
 class PaserBox extends React.Component{
 
+
+
       constructor(props) {
             super(props);
             this.state = {
@@ -68,7 +74,8 @@ class PaserBox extends React.Component{
                 {word: 'paminiyaya',tag:'KPD'},
                 ],
 
-              tags:[]
+              tags:{},
+              newtags:undefined
             };
       };
 
@@ -108,7 +115,7 @@ class PaserBox extends React.Component{
 
         });
 
-        this.setState({ tags: NewTaggedArray });
+        //this.setState({ tags: NewTaggedArray });
         console.log(NewTaggedArray);
 
       };
@@ -124,6 +131,23 @@ class PaserBox extends React.Component{
           val = false;
         }
         else {
+
+            axios.get('http://35.163.71.75/v1/api/'+status)
+            .then((response)=>{
+              console.log('menna response');
+                console.log(response.data);
+               this.setState({
+                 tags:response.data
+               });
+               DATA=<ParserTagBox style={style} mytag={this.state.tags}/>;
+              console.log('menna state');
+               console.log(this.state.tags);
+
+            }).catch((err)=>{
+              console.log('menna error');
+              console.log(err);
+            });
+
 
           this.tagger();
           //<Link to={"/tag"}><RaisedButton  secondary={true} label="Parse"/></Link>
@@ -145,6 +169,14 @@ class PaserBox extends React.Component{
         );
       };
 
+      rendertreeTag = (data) => {
+        if(data.length>0){
+        return (
+        <ParserTagBox style={style} mytag={data}/>
+        );
+       }
+      };
+
       cleartext = () =>{
         document.getElementById('MesageBox').value = '';
       };
@@ -154,6 +186,7 @@ class PaserBox extends React.Component{
             this.parse();
           }
       };
+
 
       render(){
         return(
@@ -168,12 +201,10 @@ class PaserBox extends React.Component{
             </div>
             <div className="col-xs-1 col-sm-1 col-md-1"/>
             </Paper>
-            <div style={tagstyles.wrapper}>
-              {this.state.tags.map(this.renderTag, this)}
-            </div>
+             {DATA}
             <br/>
             <br/>
-            <ParserTagBox style={style}/>
+
           </div>
         );
       }
