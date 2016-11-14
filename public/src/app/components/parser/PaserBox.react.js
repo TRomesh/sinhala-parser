@@ -72,10 +72,7 @@ class PaserBox extends React.Component{
             this.state = {
               textStatus: '',
               tags:{},
-              taggedData:{}
             };
-
-        this._onChange = this._onChange.bind (this);
 
       }
 
@@ -88,7 +85,7 @@ class PaserBox extends React.Component{
       }
 
       _onChange(){
-         this.setState({taggedData:Store.getData()});
+         //this.setState({textStatus:Store.getClearTextFieldMsg()});
       }
 
       parse = () =>{
@@ -130,7 +127,7 @@ class PaserBox extends React.Component{
                   fullWidth={true}
                   style={textfieldstyle}
                   errorText={this.state.textStatus}
-                  ref="textinput" 
+                  ref="textinput"
                   id="MesageBox"
                   onKeyPress={this.EnterKey}
                   hintText="සම්පුර්ණ වාක්‍යයක් ඇතුල් කරන්න ..."
@@ -145,10 +142,6 @@ class PaserBox extends React.Component{
             </Paper>
             <label style={styles}>සැලකිය යුතුයි : මෙම ක්‍රියාවලිය නිවැරදිව ක්‍රියා කිරීමට නම් නිවැරදි ව්‍යාකරණ සහිත වාක්‍ය ඇතුල් කරන්න</label>
             <br/>
-            <ParserTreeBox style={style} mytag={this.state.taggedData}/>
-            <br/>
-            <br/>
-
           </div>
         );
       }

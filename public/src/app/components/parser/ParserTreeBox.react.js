@@ -7,6 +7,8 @@ import {deepPurpleA100,pinkA200,orangeA400,indigo400,greenA400,lightGreenA400,ye
   cyanA400,tealA400,limeA400,amberA400,deepOrangeA400,brown500,blueGrey500,grey500,grey50,blue200,lightGreenA200
 } from 'material-ui/styles/colors';
 import ParserTree from './ParserTree.react';
+import Actions from '../../Actions/Actions';
+import Store from '../../Store/Store';
 
 const grapghstyle={
   marginLeft: 50,
@@ -19,8 +21,23 @@ class ParserTreeBox extends React.Component{
   constructor(props) {
     super(props);
       this.state = {
-        data: []
+        data: [],
+        taggedData:{}
       }
+
+     this._onChange = this._onChange.bind (this);
+  }
+
+  componentWillMount(){
+    Store.addChangeListener(this._onChange);
+  }
+
+  componentWillUnmount(){
+    Store.removeChangeListener(this._onChange);
+  }
+
+  _onChange(){
+     this.setState({taggedData:Store.getData()});
   }
 
   listItems = (obj) => {
@@ -103,7 +120,7 @@ class ParserTreeBox extends React.Component{
      return(
         <div>
           <div>
-            <ParserTree data={this.listItems(this.props.mytag)} />
+            <ParserTree data={this.listItems(this.state.taggedData)} />
           </div>
         </div>
      );
