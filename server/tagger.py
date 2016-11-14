@@ -2,18 +2,19 @@
 import sys
 import os
 import time
+import logging
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn import svm
 
 class Tagger:
     def __init__(self):
-        print "Tagger running ..."
+        logging.basicConfig(filename='logs/tagger.log',level=logging.DEBUG)
+        logging.debug('Tagger object initialized')
 
     def tag(self, user_input):
         # classes
         classes = ['KPD', 'KRW', 'NIP', 'NMP', 'NMV', 'UPS', 'MK', 'SAM']
-
         # Read the data
         train_data = []
         train_labels = []
@@ -22,7 +23,7 @@ class Tagger:
         stop_data = []
         data = []
 
-        f = file("./data/train.txt").read()
+        f = file(os.path.dirname(os.path.abspath(__file__)) + "/data/train.txt").read()
         for word in f.split():
             # append each word
             data.append(word)
@@ -47,9 +48,8 @@ class Tagger:
         # print train_vectors
         # print type(train_vectors)
         test_vectors = vectorizer.transform(user_input)
-        print test_vectors
-        # print test_vectors
-
+        # log test_vectors
+        logging.debug('Test vectors: %s', test_vectors)
         # Perform classification with SVM, kernel=rbf
         classifier_rbf = svm.LinearSVC()
         t0 = time.time()
@@ -59,9 +59,6 @@ class Tagger:
         t2 = time.time()
         time_rbf_train = t1-t0
         time_rbf_predict = t2-t1
-
-        print("Results for LinearSVC: ")
-        print "prediction"
-        print prediction_rbf
-
+        # log prediction from LinearSVC
+        logging.debug('Prediction LinearSVC: %s', prediction_rbf)
         return prediction_rbf

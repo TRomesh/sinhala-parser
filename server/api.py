@@ -1,14 +1,23 @@
 import cherrypy
 import utils
+import os.path
+from cherrypy.lib.static import serve_file
 
-
+# static directory
+STATIC_DIR = os.path.dirname(os.path.abspath('public/dist/app'))
+# Root class to handle root routes
+@cherrypy.expose
+class Root(object):
+    def index(self):
+        cherrypy.InternalRedirect("v1")
+# WebService class to handle requests to SP-API endpoints
 @cherrypy.expose
 class WebService(object):
 
-    @cherrypy.tools.accept(media='text/plain')
-    def GET(self ,data):
-         p = utils.Parser()
-         return p.treebuilder(data)
+    def GET(self, data):
+        if cherrypy.request.headers['Accept'] == 'application/xml':
+            return utils.Parser.tree_builder_xml(data)
+        return utils.Parser.tree_builder_json(data)
 
     def POST(self, data):
         return 'using v1/api/POST'
@@ -27,6 +36,18 @@ if __name__ == '__main__':
             'tools.sessions.on': True,
             'tools.response_headers.on': True,
             'tools.response_headers.headers': [('Content-Type', 'text/plain')],
+            'tools.staticdir.on' : True,
+            'tools.staticdir.dir' : STATIC_DIR,
+            'tools.staticdir.index' : 'index.html'
         }
     }
-    cherrypy.quickstart(WebService(), '/v1/api', conf)
+
+    cherrypy.config.update({
+        'server.socket_host': '0.0.0.0',
+        'server.socket_port': 8080,
+    })
+
+    root = Root()
+    root.v1 = Root()
+    root.v1.api = WebService()
+    cherrypy.quickstart(root, '/', conf)
