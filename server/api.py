@@ -1,3 +1,4 @@
+import os
 import cherrypy
 import utils
 
@@ -29,4 +30,9 @@ if __name__ == '__main__':
             'tools.response_headers.headers': [('Content-Type', 'text/plain')],
         }
     }
+    if not os.path.exists('logs'):
+        os.makedirs('logs')
+    cherrypy.config({
+        'log.access_file': 'logs/http_access.log',
+    })
     cherrypy.quickstart(WebService(), '/v1/api', conf)
