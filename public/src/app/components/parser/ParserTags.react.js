@@ -11,7 +11,7 @@ import Paper from 'material-ui/Paper';
 const styles = {
   chip: {
     margin: 4,
-    width: 200
+    width: 130
   },
   wrapper: {
     display: 'flex',
@@ -21,8 +21,9 @@ const styles = {
 
 const style = {
   height: 650,
-  width: 250,
+  width: 200,
   margin: 50,
+  marginLeft: 180,
   display: 'inline-block',
   padding: 10,
   textAlign: 'center',
