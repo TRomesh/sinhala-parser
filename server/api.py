@@ -46,12 +46,12 @@ if __name__ == '__main__':
         }
     }
 
-    if not os.path.exists('logs'):
-        os.makedirs('logs')
+    if not os.path.exists(os.path.abspath('server/logs')):
+        os.makedirs(os.path.abspath('server/logs'))
     cherrypy.config.update({
         'server.socket_host': '0.0.0.0',
         'server.socket_port': 8080,
-        'log.access_file': 'logs/http_access.log'
+        'log.access_file': 'server/logs/http_access.log'
     })
 
     root = Root()

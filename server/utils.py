@@ -10,9 +10,9 @@ class Parser:
 
     def __init__(self):
         self.logger = logging.getLogger('sinhala-parser')
-        if not os.path.exists('logs'):
-            os.makedirs('logs')
-        logger_handler = logging.FileHandler('logs/sinhala-parser.log')
+        if not os.path.exists(os.path.abspath('server/logs')):
+            os.makedirs(os.path.abspath('server/logs'))
+        logger_handler = logging.FileHandler('server/logs/sinhala-parser.log')
         logger_format = '%(asctime)-s - %(levelname)s : %(message)s'
         logger_handler.setFormatter(logging.Formatter(logger_format))
         logger_handler.setLevel(logging.DEBUG)
