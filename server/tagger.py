@@ -37,7 +37,7 @@ class Tagger:
 
         # create vector from TFIDF
         vectorizer = TfidfVectorizer(min_df=0,
-                                 max_df = 1,
+                                 max_df = 0.9,
                                  sublinear_tf=True,
                                  stop_words=stop_data,
                                  strip_accents='unicode',
