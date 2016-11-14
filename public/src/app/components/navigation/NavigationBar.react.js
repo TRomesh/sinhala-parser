@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 import AppBar from 'material-ui/AppBar';
-import Parserlogo from '../parser/Parserlogo.react';
 import FlatButton from 'material-ui/FlatButton';
 import IconButton from 'material-ui/IconButton';
 import SPlogo from '../../media/images/logo.png';
