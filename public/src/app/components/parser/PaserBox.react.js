@@ -152,7 +152,7 @@ class PaserBox extends React.Component{
                   tags:response.data
                 });
 
-                DATA=<ParserTagBox style={style} mytag={this.state.tags}/>;
+                DATA=<ParserTreeBox style={style} mytag={this.state.tags}/>;
 
             }).catch((err)=>{
                 console.log(err);
@@ -181,7 +181,15 @@ class PaserBox extends React.Component{
           <div>
             <Paper className="row" style={style} zDepth={1}>
               <div className="col-xs-12 col-sm-12 col-md-12">
-                <TextField fullWidth={true} style={textfieldstyle} errorText={this.state.textStatus} ref="textinput" id="MesageBox" onKeyPress={this.EnterKey} hintText="කරුණාකර සම්පුර්ණ වාක්‍යයක් ඇතුල් කරන්න ..."/>
+                <TextField 
+                  fullWidth={true} 
+                  style={textfieldstyle} 
+                  errorText={this.state.textStatus} 
+                  ref="textinput" id="MesageBox" 
+                  onKeyPress={this.EnterKey} 
+                  hintText="සම්පුර්ණ වාක්‍යයක් ඇතුල් කරන්න ..."
+                  name="ta"
+                  id="language"/>
               </div>
             <div className="col-xs-9 col-sm-9 col-md-9"/>
             <div className="col-xs-3 col-sm-3 col-md-3">
