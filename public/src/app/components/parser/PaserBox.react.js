@@ -10,6 +10,8 @@ import {deepPurpleA100,pinkA200,orangeA400,indigo400,greenA400,lightGreenA400,ye
 } from 'material-ui/styles/colors';
 import Chip from 'material-ui/Chip';
 import ReactTooltip from 'react-tooltip';
+import Actions from '../../Actions/Actions';
+import Store from '../../Store/Store';
 
 
 const style = {
@@ -67,7 +69,22 @@ class PaserBox extends React.Component{
               tags:{},
               newtags:undefined
             };
-      };
+
+        this._onChange = this._onChange.bind (this);
+
+      }
+
+      componentWillMount(){
+        Store.addChangeListener(this._onChange);
+      }
+
+      componentWillUnmount(){
+        Store.removeChangeListener(this._onChange);
+      }
+
+      _onChange(){
+         this.setState({taggedData:Store.getData()});
+      }
 
       parse = () =>{
         let val = true;
@@ -122,7 +139,7 @@ class PaserBox extends React.Component{
             </Paper>
             <label style={styles}>සැලකිය යුතුයි : මෙම ක්‍රියාවලිය හොදින් වැඩ කිරීමට නම් නිවැරදි ව්‍යාකරණ සහිත වාක්‍ය ඇතුල් කරන්න</label>
             <br/>
-             {DATA}
+            <ParserTreeBox style={style} mytag={this.state.taggedData}/>
             <br/>
             <br/>
 
