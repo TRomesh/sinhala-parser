@@ -55,34 +55,34 @@ class ParserTreeBox extends React.Component{
 
             switch (words.text) {
               case 'NMP':
-                NewTaggedArray.push({key:result.key , fill:indigo400 , stroke:"#4d90fe" , text:result.text , parent:result.parent});
+                NewTaggedArray.push({key:result.key , fill:indigo400 , stroke:indigo400 , text:result.text , parent:result.parent});
                 break;
               case 'KPD,':
-                NewTaggedArray.push({key:result.key , fill:pinkA200 , stroke:"#4d90fe" , text:result.text , parent:result.parent});
+                NewTaggedArray.push({key:result.key , fill:pinkA200 , stroke:pinkA200 , text:result.text , parent:result.parent});
                 break;
               case 'KPD':
-                NewTaggedArray.push({key:result.key , fill:pinkA200 , stroke:"#4d90fe" , text:result.text , parent:result.parent});
+                NewTaggedArray.push({key:result.key , fill:pinkA200 , stroke:pinkA200 , text:result.text , parent:result.parent});
                 break;
               case 'NMV':
-                NewTaggedArray.push({key:result.key , fill:orangeA400 , stroke:"#4d90fe" , text:result.text , parent:result.parent});
+                NewTaggedArray.push({key:result.key , fill:orangeA400 , stroke:orangeA400 , text:result.text , parent:result.parent});
                 break;
               case 'KRW':
-                NewTaggedArray.push({key:result.key , fill:lightBlue400 , stroke:"#4d90fe" , text:result.text , parent:result.parent});
+                NewTaggedArray.push({key:result.key , fill:lightBlue400 , stroke:lightBlue400 , text:result.text , parent:result.parent});
                 break;
               case 'NIP':
-                NewTaggedArray.push({key:result.key , fill:yellowA200 , stroke:"#4d90fe" , text:result.text , parent:result.parent});
+                NewTaggedArray.push({key:result.key , fill:yellowA200 , stroke:yellowA200 , text:result.text , parent:result.parent});
                 break;
               case 'KRU':
-                NewTaggedArray.push({key:result.key , fill:lightGreenA400 , stroke:"#4d90fe" , text:result.text , parent:result.parent});
+                NewTaggedArray.push({key:result.key , fill:lightGreenA400 , stroke:lightGreenA400 , text:result.text , parent:result.parent});
                 break;
               case 'UPS':
-                NewTaggedArray.push({key:result.key , fill:deepPurpleA100 , stroke:"#4d90fe" , text:result.text , parent:result.parent});
+                NewTaggedArray.push({key:result.key , fill:deepPurpleA100 , stroke:deepPurpleA100 , text:result.text , parent:result.parent});
                 break;
               case 'MK':
-                NewTaggedArray.push({key:result.key , fill:brown300 , stroke:"#4d90fe" , text:result.text , parent:result.parent});
+                NewTaggedArray.push({key:result.key , fill:brown300 , stroke:brown300 , text:result.text , parent:result.parent});
                 break;
               case 'SAM':
-                NewTaggedArray.push({key:result.key , fill:lightGreenA200 , stroke:"#4d90fe" , text:result.text , parent:result.parent});
+                NewTaggedArray.push({key:result.key , fill:lightGreenA200 , stroke:lightGreenA200 , text:result.text , parent:result.parent});
                 break
               default:
 
