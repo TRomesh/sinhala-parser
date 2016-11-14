@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npm run build",
     "build": "webpack -d && cp src/index.html dist/index.html && cp src/favicon.ico dist/favicon.ico && webpack-dev-server --content-base src/ --inline --hot --port=3000",
+    "build:dev": "webpack -d && cp src/index.html dist/index.html && cp src/favicon.ico dist/favicon.ico",
     "build:prod": "webpack -p && cp src/index.html dist/index.html"
   },
   "keywords": [
