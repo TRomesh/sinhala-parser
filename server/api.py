@@ -1,7 +1,9 @@
+import os
 import cherrypy
 import utils
-import os.path
+
 from cherrypy.lib.static import serve_file
+
 
 # static directory
 STATIC_DIR = os.path.dirname(os.path.abspath('public/dist/app'))
@@ -44,9 +46,12 @@ if __name__ == '__main__':
         }
     }
 
+    if not os.path.exists('logs'):
+        os.makedirs('logs')
     cherrypy.config.update({
         'server.socket_host': '0.0.0.0',
         'server.socket_port': 8080,
+        'log.access_file': 'logs/http_access.log'
     })
 
     root = Root()
