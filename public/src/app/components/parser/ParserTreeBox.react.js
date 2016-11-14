@@ -1,7 +1,4 @@
 import React from 'react';
-import dagre from 'dagre';
-import cytoscape from 'cytoscape';
-import cydagre from 'cytoscape-dagre';
 import Chip from 'material-ui/Chip';
 import ReactTooltip from 'react-tooltip';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -9,9 +6,7 @@ import {deepPurpleA100,pinkA200,orangeA400,indigo400,greenA400,lightGreenA400,ye
   lightBlue400,blueA400,blueA300, indigoA400,pinkA400,redA400,purpleA400,deepPurpleA400,lightBlueA400,
   cyanA400,tealA400,limeA400,amberA400,deepOrangeA400,brown500,blueGrey500,grey500,grey50,blue200,lightGreenA200
 } from 'material-ui/styles/colors';
-import PTagBox from './PTagBox.react';
-
-cydagre( cytoscape, dagre );
+import ParserTree from './ParserTree.react';
 
 const grapghstyle={
   marginLeft: 50,
@@ -19,7 +14,7 @@ const grapghstyle={
   height:500
 };
 
-class ParserTagBox extends React.Component{
+class ParserTreeBox extends React.Component{
 
   constructor(props) {
     super(props);
@@ -108,7 +103,7 @@ class ParserTagBox extends React.Component{
      return(
         <div>
           <div>
-            <PTagBox data={this.listItems(this.props.mytag)} />
+            <ParserTree data={this.listItems(this.props.mytag)} />
           </div>
         </div>
      );
@@ -116,4 +111,4 @@ class ParserTagBox extends React.Component{
 
 }
 
-export default ParserTagBox;
+export default ParserTreeBox;

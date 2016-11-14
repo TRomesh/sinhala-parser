@@ -7,7 +7,6 @@ import {deepPurpleA100,pinkA200,orangeA400,indigo400,greenA400,lightGreenA400,ye
 } from 'material-ui/styles/colors';
 import ReactTooltip from 'react-tooltip';
 import Paper from 'material-ui/Paper';
-import PTagBox from './PTagBox.react';
 
 const styles = {
   chip: {
