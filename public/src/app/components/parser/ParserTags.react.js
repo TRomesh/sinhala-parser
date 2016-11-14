@@ -71,7 +71,7 @@ class ParserTags extends React.Component{
 	        <Chip backgroundColor={brown300} data-tip="මිශ්‍ර ක්‍රියා (Mishrakkriya)" onTouchTap={handleTouchTap} style={styles.chip}>
 	          මිශ්‍ර ක්‍රියා
 	        </Chip>
-          <Chip backgroundColor={lightGreenA200} data-tip="සමාස (Mishrakkriya)" onTouchTap={handleTouchTap} style={styles.chip}>
+          <Chip backgroundColor={lightGreenA200} data-tip="සමාස (Samasa)" onTouchTap={handleTouchTap} style={styles.chip}>
             සමාස
           </Chip>
         </div>
