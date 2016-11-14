@@ -9,8 +9,8 @@ from sklearn import svm
 
 class Tagger:
     def __init__(self):
-        logging.basicConfig(filename='logs/tagger.log',level=logging.DEBUG)
-        logging.debug('Tagger object initialized')
+        self.logger = logging.getLogger('sinhala-parser')
+        self.logger.debug('Tagger object initialized')
 
     def tag(self, user_input):
         # classes
@@ -49,7 +49,7 @@ class Tagger:
         # print type(train_vectors)
         test_vectors = vectorizer.transform(user_input)
         # log test_vectors
-        logging.debug('Test vectors: %s', test_vectors)
+        self.logger.debug('Test vectors: %s', test_vectors)
         # Perform classification with SVM, kernel=rbf
         classifier_rbf = svm.LinearSVC()
         t0 = time.time()
@@ -60,5 +60,5 @@ class Tagger:
         time_rbf_train = t1-t0
         time_rbf_predict = t2-t1
         # log prediction from LinearSVC
-        logging.debug('Prediction LinearSVC: %s', prediction_rbf)
+        self.logger.debug('Prediction LinearSVC: %s', prediction_rbf)
         return prediction_rbf

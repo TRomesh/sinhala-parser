@@ -1,7 +1,9 @@
+import os
 import cherrypy
 import utils
-import os.path
+
 from cherrypy.lib.static import serve_file
+
 
 # static directory
 STATIC_DIR = os.path.dirname(os.path.abspath('public/dist/app'))
@@ -16,8 +18,10 @@ class WebService(object):
 
     def GET(self, data):
         if cherrypy.request.headers['Accept'] == 'application/xml':
-            return utils.Parser.tree_builder_xml(data)
-        return utils.Parser.tree_builder_json(data)
+            parser = utils.Parser()
+            return parser.tree_builder_xml(data)
+        parser = utils.Parser()
+        return parser.tree_builder_json(data)
 
     def POST(self, data):
         return 'using v1/api/POST'
@@ -42,9 +46,12 @@ if __name__ == '__main__':
         }
     }
 
+    if not os.path.exists(os.path.abspath('server/logs')):
+        os.makedirs(os.path.abspath('server/logs'))
     cherrypy.config.update({
         'server.socket_host': '0.0.0.0',
         'server.socket_port': 8080,
+        'log.access_file': 'server/logs/http_access.log'
     })
 
     root = Root()
