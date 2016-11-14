@@ -61,7 +61,7 @@ export default class GoJs extends Component {
                             new go.Binding("fill"),
                             new go.Binding("stroke")),
                         goObj(go.TextBlock,
-                          { font: "bold 30pt Arial, sans-serif", margin: new go.Margin(4, 2, 2, 2) },
+                          { font: "bold 16pt Arial, sans-serif", margin: new go.Margin(4, 2, 2, 2) },
                             new go.Binding("text"))
                       ),
                 goObj ( go.Panel,  // this is underneath the "BODY"

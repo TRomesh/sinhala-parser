@@ -67,7 +67,7 @@ class PaserBox extends React.Component{
             this.state = {
               textStatus: '',
               tags:{},
-              newtags:undefined
+              taggedData:{}
             };
 
         this._onChange = this._onChange.bind (this);
@@ -97,6 +97,8 @@ class PaserBox extends React.Component{
           val = false;
         }
         else {
+
+           Actions.SendDataToTag(status);
 
           console.log(status);
 
