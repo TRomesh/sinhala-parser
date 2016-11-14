@@ -11,7 +11,7 @@ import Paper from 'material-ui/Paper';
 const styles = {
   chip: {
     margin: 4,
-    width: 200
+    width: 130
   },
   wrapper: {
     display: 'flex',
@@ -21,8 +21,9 @@ const styles = {
 
 const style = {
   height: 650,
-  width: 250,
+  width: 200,
   margin: 50,
+  marginLeft: 180,
   display: 'inline-block',
   padding: 10,
   textAlign: 'center',
@@ -71,7 +72,7 @@ class ParserTags extends React.Component{
 	        <Chip backgroundColor={brown300} data-tip="මිශ්‍ර ක්‍රියා (Mishrakkriya)" onTouchTap={handleTouchTap} style={styles.chip}>
 	          මිශ්‍ර ක්‍රියා
 	        </Chip>
-          <Chip backgroundColor={lightGreenA200} data-tip="සමාස (Mishrakkriya)" onTouchTap={handleTouchTap} style={styles.chip}>
+          <Chip backgroundColor={lightGreenA200} data-tip="සමාස (Samasa)" onTouchTap={handleTouchTap} style={styles.chip}>
             සමාස
           </Chip>
         </div>

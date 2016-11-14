@@ -16,7 +16,7 @@ import Store from '../../Store/Store';
 
 const style = {
   height: 120,
-  width: 650,
+  width: 920,
   marginLeft: 50,
   marginTop: 50,
   display: 'inline-block',
@@ -28,6 +28,11 @@ const styles = {
   marginTop: 10,
   marginBottom: 50
 };
+
+const style_button = {
+    marginLeft:750
+};
+
 
 const textfieldstyle = {
     marginBottom:10
@@ -98,11 +103,9 @@ class PaserBox extends React.Component{
         }
         else {
 
-           Actions.SendDataToTag(status);
-
+          Actions.SendDataToTag(status);
           console.log(status);
-
-          this.setState({statusText: ''});
+          this.setState({textStatus: ''});
 
         }
             //this.clearText();
@@ -127,14 +130,15 @@ class PaserBox extends React.Component{
                   fullWidth={true}
                   style={textfieldstyle}
                   errorText={this.state.textStatus}
-                  ref="textinput" id="MesageBox"
+                  ref="textinput" 
+                  id="MesageBox"
                   onKeyPress={this.EnterKey}
                   hintText="සම්පුර්ණ වාක්‍යයක් ඇතුල් කරන්න ..."
                   name="ta"
                   id="language"/>
               </div>
             <div className="col-xs-9 col-sm-9 col-md-9"/>
-            <div className="col-xs-3 col-sm-3 col-md-3">
+            <div className="col-xs-3 col-sm-3 col-md-3" style={style_button}>
               <RaisedButton  secondary={true} label="Parse" onTouchTap={this.parse}/>
             </div>
             <div className="col-xs-1 col-sm-1 col-md-1"/>
