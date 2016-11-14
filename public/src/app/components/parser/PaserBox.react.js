@@ -10,10 +10,9 @@ import {deepPurpleA100,pinkA200,orangeA400,indigo400,greenA400,lightGreenA400,ye
 } from 'material-ui/styles/colors';
 import Chip from 'material-ui/Chip';
 import ReactTooltip from 'react-tooltip';
-import axios from 'axios';
+import Actions from '../../Actions/Actions';
+import Store from '../../Store/Store';
 
-
-var DATA=[];
 
 const style = {
   height: 120,
@@ -67,71 +66,25 @@ class PaserBox extends React.Component{
             super(props);
             this.state = {
               textStatus: '',
-
-              tagData: [
-                {word: 'sudu',tag:'NMV'},
-                {word: 'nandha',tag:'NPD'},
-                {word: 'samaga',tag:'NIP'},
-                {word: 'amma',tag:'NPD'},
-                {word: 'ikmanin',tag:'KRV'},
-                {word: 'gedara',tag:'NPD'},
-                {word: 'paminiyaya',tag:'KPD'},
-                ],
-
               tags:{},
               newtags:undefined
             };
-      };
 
-/*        tagger = () => {
-        let NewTaggedArray = [];
-        this.state.tagData.map((words)=>{
+        this._onChange = this._onChange.bind (this);
 
-            switch (words.tag) {
-              case 'NPD':
-                  NewTaggedArray.push({tag:words.tag,word:words.word,color:indigo400});
-                break;
-              case 'KPD':
-                  NewTaggedArray.push({tag:words.tag,word:words.word,color:pinkA200});
-                break;
-              case 'NMV':
-                  NewTaggedArray.push({tag:words.tag,word:words.word,color:orangeA400});
-                break;
-              case 'KRV':
-                  NewTaggedArray.push({tag:words.tag,word:words.word,color:lightBlue400});
-                break;
-              case 'NIP':
-                  NewTaggedArray.push({tag:words.tag,word:words.word,color:yellowA200});
-                break;
-              case 'KRU':
-                  NewTaggedArray.push({tag:words.tag,word:words.word,color:lightGreenA400});
-                break;
-              case 'UPS':
-                  NewTaggedArray.push({tag:words.tag,word:words.word,color:deepPurpleA100});
-                break;
-              case 'MK':
-                  NewTaggedArray.push({tag:words.tag,word:words.word,color:brown300});
-                break;
+      }
 
-              default:
+      componentWillMount(){
+        Store.addChangeListener(this._onChange);
+      }
 
-            }
+      componentWillUnmount(){
+        Store.removeChangeListener(this._onChange);
+      }
 
-        });
-
-        //this.setState({ tags: NewTaggedArray });
-        console.log(NewTaggedArray);
-
-  };
-
-        renderTag = (data,i) => {
-        return (
-          <div key={i}>
-            <Chip key={i} style={tagstyles.tag} data-tip={data.tag} backgroundColor={data.color}>{data.word}</Chip>
-            <ReactTooltip place="bottom" type="dark" effect="float"/>
-          </div>
-        );
-      };*/
+      _onChange(){
+         this.setState({taggedData:Store.getData()});
+      }
 
       parse = () =>{
         let val = true;
@@ -145,23 +98,10 @@ class PaserBox extends React.Component{
         }
         else {
 
-            axios.get('http://35.163.71.75/v1/api/'+status)
-            .then((response)=> {
+          console.log(status);
 
-                this.setState({
-                  tags:response.data
-                });
+          this.setState({statusText: ''});
 
-                DATA=<ParserTreeBox style={style} mytag={this.state.tags}/>;
-
-            }).catch((err)=>{
-                console.log(err);
-            });
-
-          //this.cleartext();
-          //this.setState({
-          //  textStatus: ''
-          // });
         }
             //this.clearText();
       };
@@ -181,12 +121,12 @@ class PaserBox extends React.Component{
           <div>
             <Paper className="row" style={style} zDepth={1}>
               <div className="col-xs-12 col-sm-12 col-md-12">
-                <TextField 
-                  fullWidth={true} 
-                  style={textfieldstyle} 
-                  errorText={this.state.textStatus} 
-                  ref="textinput" id="MesageBox" 
-                  onKeyPress={this.EnterKey} 
+                <TextField
+                  fullWidth={true}
+                  style={textfieldstyle}
+                  errorText={this.state.textStatus}
+                  ref="textinput" id="MesageBox"
+                  onKeyPress={this.EnterKey}
                   hintText="සම්පුර්ණ වාක්‍යයක් ඇතුල් කරන්න ..."
                   name="ta"
                   id="language"/>
@@ -199,7 +139,7 @@ class PaserBox extends React.Component{
             </Paper>
             <label style={styles}>සැලකිය යුතුයි : මෙම ක්‍රියාවලිය නිවැරදිව ක්‍රියා කිරීමට නම් නිවැරදි ව්‍යාකරණ සහිත වාක්‍ය ඇතුල් කරන්න</label>
             <br/>
-             {DATA}
+            <ParserTreeBox style={style} mytag={this.state.taggedData}/>
             <br/>
             <br/>
 

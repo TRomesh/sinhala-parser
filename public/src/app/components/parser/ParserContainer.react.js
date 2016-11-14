@@ -1,7 +1,6 @@
 import React from 'react';
 import PaserBox from './PaserBox.react';
 import ParserTags from './ParserTags.react';
-import Parserlogo from './Parserlogo.react';
 import RaisedButton from 'material-ui/RaisedButton';
 
 

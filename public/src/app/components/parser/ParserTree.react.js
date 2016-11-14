@@ -21,16 +21,16 @@ export default class GoJs extends Component {
     // This assumes the TreeLayout.angle is 90 -- growing downward
     /** @override */
     FlatTreeLayout.prototype.commitLayout = function () {
-      
+
       // call base method first
-      go.TreeLayout.prototype.commitLayout.call(this);  
-      
+      go.TreeLayout.prototype.commitLayout.call(this);
+
       // find maximum Y position of all Nodes
       var y = -Infinity;
       this.network.vertexes.each(function(v) {
         y = Math.max(y, v.node.position.y);
       });
-      
+
       // move down all leaf nodes to that Y position, but keeping their X position
       this.network.vertexes.each(function(v) {
         var node = v.node;
@@ -87,7 +87,6 @@ export default class GoJs extends Component {
 
     componentWillUpdate (prevProps) {
       if (this.props.data !== prevProps.data) {
-        console.log ('Updating');
         const model = this.state.myModel;
         const diagram = this.state.myDiagram;
         model.nodeDataArray = this.props.data;
