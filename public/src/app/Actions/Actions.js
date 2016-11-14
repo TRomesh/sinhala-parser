@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export default {
    SendDataToTag(sentence){
-     axios.get('http://35.163.71.75/v1/api/'+sentence).then((response)=>{
+     axios.get('/v1/api/'+sentence).then((response)=>{
         dispatch({ actionType: AppConstants.ADD_DATA,data:response.data});
        }).catch((err)=>{
           console.log(err);
