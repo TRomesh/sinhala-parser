@@ -96,7 +96,7 @@ export default class GoJs extends Component {
     }
 
     render () {
-      return <div ref="goJsDiv" style={{'width': '100%', 'height': '400px', 'backgroundColor': '#FFFFFF'}}></div>;
+      return <div ref="goJsDiv" style={{'width': '100%', 'height': '500px', 'backgroundColor': '#FFFFFF'}}></div>;
     }
 }
 
