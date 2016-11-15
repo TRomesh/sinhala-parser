@@ -2,9 +2,7 @@ import React from 'react';
 import Chip from 'material-ui/Chip';
 import ReactTooltip from 'react-tooltip';
 import RaisedButton from 'material-ui/RaisedButton';
-import {deepPurpleA100,pinkA200,orangeA400,indigo400,greenA400,lightGreenA400,yellowA200,brown300,
-  lightBlue400,blueA400,blueA300, indigoA400,pinkA400,redA400,purpleA400,deepPurpleA400,lightBlueA400,
-  cyanA400,tealA400,limeA400,amberA400,deepOrangeA400,brown500,blueGrey500,grey500,grey50,blue200,lightGreenA200
+import {blue200,pink300,deepOrangeA100,deepPurpleA100,lightGreenA200,amberA100,teal200,brown200,blueGrey100,grey50,
 } from 'material-ui/styles/colors';
 import ParserTree from './ParserTree.react';
 import Actions from '../../Actions/Actions';
@@ -72,34 +70,34 @@ class ParserTreeBox extends React.Component{
 
             switch (words.text) {
               case 'NMP':
-                NewTaggedArray.push({key:result.key , fill:indigo400 , stroke:indigo400 , text:result.text , parent:result.parent});
+                NewTaggedArray.push({key:result.key , fill:blue200 , stroke:blue200 , text:result.text , parent:result.parent});
                 break;
               case 'KPD,':
-                NewTaggedArray.push({key:result.key , fill:pinkA200 , stroke:pinkA200 , text:result.text , parent:result.parent});
+                NewTaggedArray.push({key:result.key , fill:pink300 , stroke:pink300 , text:result.text , parent:result.parent});
                 break;
               case 'KPD':
-                NewTaggedArray.push({key:result.key , fill:pinkA200 , stroke:pinkA200 , text:result.text , parent:result.parent});
+                NewTaggedArray.push({key:result.key , fill:pink300 , stroke:pink300 , text:result.text , parent:result.parent});
                 break;
               case 'NMV':
-                NewTaggedArray.push({key:result.key , fill:orangeA400 , stroke:orangeA400 , text:result.text , parent:result.parent});
+                NewTaggedArray.push({key:result.key , fill:deepOrangeA100 , stroke:deepOrangeA100 , text:result.text , parent:result.parent});
                 break;
               case 'KRW':
-                NewTaggedArray.push({key:result.key , fill:lightBlue400 , stroke:lightBlue400 , text:result.text , parent:result.parent});
-                break;
-              case 'NIP':
-                NewTaggedArray.push({key:result.key , fill:yellowA200 , stroke:yellowA200 , text:result.text , parent:result.parent});
-                break;
-              case 'KRU':
-                NewTaggedArray.push({key:result.key , fill:lightGreenA400 , stroke:lightGreenA400 , text:result.text , parent:result.parent});
-                break;
-              case 'UPS':
                 NewTaggedArray.push({key:result.key , fill:deepPurpleA100 , stroke:deepPurpleA100 , text:result.text , parent:result.parent});
                 break;
+              case 'NIP':
+                NewTaggedArray.push({key:result.key , fill:lightGreenA200 , stroke:lightGreenA200 , text:result.text , parent:result.parent});
+                break;
+              case 'KRU':
+                NewTaggedArray.push({key:result.key , fill:amberA100 , stroke:amberA100 , text:result.text , parent:result.parent});
+                break;
+              case 'UPS':
+                NewTaggedArray.push({key:result.key , fill:teal200 , stroke:teal200 , text:result.text , parent:result.parent});
+                break;
               case 'MK':
-                NewTaggedArray.push({key:result.key , fill:brown300 , stroke:brown300 , text:result.text , parent:result.parent});
+                NewTaggedArray.push({key:result.key , fill:brown200 , stroke:brown200 , text:result.text , parent:result.parent});
                 break;
               case 'SAM':
-                NewTaggedArray.push({key:result.key , fill:lightGreenA200 , stroke:lightGreenA200 , text:result.text , parent:result.parent});
+                NewTaggedArray.push({key:result.key , fill:blueGrey100 , stroke:blueGrey100 , text:result.text , parent:result.parent});
                 break
               default:
 

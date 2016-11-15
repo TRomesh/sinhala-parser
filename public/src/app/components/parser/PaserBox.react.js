@@ -3,7 +3,6 @@ import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Link } from 'react-router';
-import ParserTreeBox from './ParserTreeBox.react';
 import {deepPurpleA100,pinkA200,orangeA400,indigo400,greenA400,lightGreenA400,yellowA200,brown300,
   lightBlue400,blueA400,blueA300, indigoA400,pinkA400,redA400,purpleA400,deepPurpleA400,lightBlueA400,
   cyanA400,tealA400,limeA400,amberA400,deepOrangeA400,brown500,blueGrey500,grey500
@@ -12,11 +11,12 @@ import Chip from 'material-ui/Chip';
 import ReactTooltip from 'react-tooltip';
 import Actions from '../../Actions/Actions';
 import Store from '../../Store/Store';
-
+import ParserTreeBox from'./ParserTreeBox.react';
+import ParserTags from './ParserTags.react';
 
 const style = {
   height: 120,
-  width: 920,
+  width: 1170,
   marginLeft: 50,
   marginTop: 50,
   display: 'inline-block',
@@ -30,7 +30,7 @@ const styles = {
 };
 
 const style_button = {
-    marginLeft:750
+    marginLeft:1010
 };
 
 
@@ -72,6 +72,7 @@ class PaserBox extends React.Component{
             this.state = {
               textStatus: '',
               tags:{},
+              showResults: false
             };
 
       }
@@ -89,27 +90,36 @@ class PaserBox extends React.Component{
       }
 
       parse = () =>{
-        let val = true;
+        //let val = true;
         let status = this.refs.textinput.getValue();
 
         if(validatebox(status).error) {
           this.setState({
             textStatus: validatebox(status).error
           });
-          val = false;
+          return;
+          //val = false;
         }
         else {
 
           Actions.SendDataToTag(status);
+          this.setState({ showResults: true });
           console.log(status);
-          this.setState({textStatus: ''});
+          //this.setState({textStatus: ''});
 
         }
-            //this.clearText();
+          this.clearText();
       };
 
-      cleartext = () =>{
-        document.getElementById('MesageBox').value = '';
+      removeError = () => {
+        this.setState({
+            textStatus: ''
+        });
+      };
+
+      clearText = () => {
+        this.refs.textinput.value= '';
+        //document.getElementById('MesageBox').value = '';
       };
 
       EnterKey = (e) =>{
@@ -132,7 +142,8 @@ class PaserBox extends React.Component{
                   onKeyPress={this.EnterKey}
                   hintText="සම්පුර්ණ වාක්‍යයක් ඇතුල් කරන්න ..."
                   name="ta"
-                  id="language"/>
+                  id="language"
+                  onKeyPress={this.removeError}/>
               </div>
             <div className="col-xs-9 col-sm-9 col-md-9"/>
             <div className="col-xs-3 col-sm-3 col-md-3" style={style_button}>
@@ -142,6 +153,14 @@ class PaserBox extends React.Component{
             </Paper>
             <label style={styles}>සැලකිය යුතුයි : මෙම ක්‍රියාවලිය නිවැරදිව ක්‍රියා කිරීමට නම් නිවැරදි ව්‍යාකරණ සහිත වාක්‍ය ඇතුල් කරන්න</label>
             <br/>
+            { this.state.showResults ?  <div className="row">
+                                          <div className="col-md-10">
+                                            <ParserTreeBox/>
+                                          </div>
+                                          <div className="col-md-2">
+                                            <ParserTags/>
+                                          </div>
+                                        </div> : null }
           </div>
         );
       }
