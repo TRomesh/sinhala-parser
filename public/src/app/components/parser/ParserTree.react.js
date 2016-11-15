@@ -45,7 +45,7 @@ export default class GoJs extends Component {
           allowCopy: false,
           allowDelete: false,
           allowMove: false,
-          initialContentAlignment: go.Spot.Center,
+          contentAlignment: go.Spot.Top,
           initialAutoScale: go.Diagram.Uniform,
           layout:
             goObj(FlatTreeLayout,  // custom Layout, defined below
