@@ -89,7 +89,7 @@ class PaserBox extends React.Component{
          //this.setState({textStatus:Store.getClearTextFieldMsg()});
       }
 
-      parse = () =>{
+      parse = () => {
         //let val = true;
         let status = this.refs.textinput.getValue();
 
@@ -111,21 +111,20 @@ class PaserBox extends React.Component{
           this.clearText();
       };
 
-      removeError = () => {
-        this.setState({
-            textStatus: ''
-        });
-      };
-
       clearText = () => {
         this.refs.textinput.value= '';
         //document.getElementById('MesageBox').value = '';
       };
 
-      EnterKey = (e) =>{
+      handleKey = (e) =>{
         if (e.key === 'Enter') {
             this.parse();
-          }
+        }
+        else {
+          this.setState({
+            textStatus: ''
+          });
+        }
       };
 
       render(){
@@ -139,11 +138,10 @@ class PaserBox extends React.Component{
                   errorText={this.state.textStatus}
                   ref="textinput"
                   id="MesageBox"
-                  onKeyPress={this.EnterKey}
+                  onKeyPress={this.handleKey}
                   hintText="සම්පුර්ණ වාක්‍යයක් ඇතුල් කරන්න ..."
                   name="ta"
-                  id="language"
-                  onKeyPress={this.removeError}/>
+                  id="language"/>
               </div>
             <div className="col-xs-9 col-sm-9 col-md-9"/>
             <div className="col-xs-3 col-sm-3 col-md-3" style={style_button}>
