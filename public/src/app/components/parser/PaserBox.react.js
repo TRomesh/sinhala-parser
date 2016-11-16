@@ -112,8 +112,8 @@ class PaserBox extends React.Component{
       };
 
       clearText = () => {
-        this.refs.textinput.value= '';
-        //document.getElementById('MesageBox').value = '';
+        //this.refs.textinput.value= '';
+        document.getElementById('language').value = '';
       };
 
       handleKey = (e) =>{
@@ -137,7 +137,6 @@ class PaserBox extends React.Component{
                   style={textfieldstyle}
                   errorText={this.state.textStatus}
                   ref="textinput"
-                  id="MesageBox"
                   onKeyPress={this.handleKey}
                   hintText="සම්පුර්ණ වාක්‍යයක් ඇතුල් කරන්න ..."
                   name="ta"
