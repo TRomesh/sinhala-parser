@@ -36,6 +36,7 @@ class NavigationBar extends React.Component{
         return(
           <div>
           <AppBar
+            className="navbar"
             title={<div><Link to="/parser"><img src={SPlogo} style={logoStyle}/></Link>Sinhala Parser</div>}
             showMenuIconButton={false}
             iconElementRight={

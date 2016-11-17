@@ -130,8 +130,8 @@ class PaserBox extends React.Component{
       render(){
         return(
           <div>
-            <Paper className="row" style={style} zDepth={1}>
-              <div className="col-xs-12 col-sm-12 col-md-12">
+            <Paper className="row col-xs-12 col-sm-12 col-md-12" style={style} zDepth={1}>
+              <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <TextField
                   fullWidth={true}
                   style={textfieldstyle}
@@ -139,6 +139,7 @@ class PaserBox extends React.Component{
                   ref="textinput"
                   onKeyPress={this.handleKey}
                   hintText="සම්පුර්ණ වාක්‍යයක් ඇතුල් කරන්න ..."
+                  className="col-xs-12 col-sm-12 col-md-12"
                   name="ta"
                   id="language"/>
               </div>
