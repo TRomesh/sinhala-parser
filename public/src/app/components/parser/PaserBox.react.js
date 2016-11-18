@@ -26,7 +26,7 @@ const style = {
 const styles = {
   marginLeft: 50,
   marginTop: 10,
-  marginBottom: 50
+  marginBottom: 30
 };
 
 const style_button = {
@@ -112,17 +112,33 @@ class PaserBox extends React.Component{
       };
 
       clearText = () => {
-        this.refs.textinput.value= '';
-        //document.getElementById('MesageBox').value = '';
+        //this.refs.textinput.value= '';
+        document.getElementById('language').value = '';
       };
 
       handleKey = (e) =>{
         if (e.key === 'Enter') {
             this.parse();
-        }
+        } 
         else {
+          var keycode = e.which;
+          if ((e.shiftKey == false && (keycode == 46 || keycode == 8 || keycode == 37 || keycode == 39 || (keycode >= 48 && keycode <= 57)))) {
+            this.setState({
+                textStatus: 'cannot enter numbers'
+            });
+          }
+          else {
+            this.setState({
+              textStatus: ''
+            });
+          }
+        }
+      };
+
+      handleKeyDown = (e) => {
+        if (e.keyCode == 8) {
           this.setState({
-            textStatus: ''
+              textStatus: ''
           });
         }
       };
@@ -137,8 +153,8 @@ class PaserBox extends React.Component{
                   style={textfieldstyle}
                   errorText={this.state.textStatus}
                   ref="textinput"
-                  id="MesageBox"
                   onKeyPress={this.handleKey}
+                  onKeyDown={this.handleKeyDown}
                   hintText="සම්පුර්ණ වාක්‍යයක් ඇතුල් කරන්න ..."
                   className="col-xs-12 col-sm-12 col-md-12"
                   name="ta"
