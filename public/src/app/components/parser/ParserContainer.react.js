@@ -13,6 +13,11 @@ const logoStyle = {
    marginTop: 50,
 };
 
+const logotextStyle={
+  padding:0,
+  paddingRight:30
+};
+
 const styles = {
     backgroundColor: amber200,
     marginLeft: 300,
@@ -50,10 +55,20 @@ class ParserContainer extends React.Component{
                     <div className="col-md-3 col-sm-3 col-xs-3 col-lg-3" />
                     <div className="col-md-3 col-sm-3 col-xs-3 col-lg-3" >
                         <img src={json} style={logoStyle}/>
+                        <div className="row">
+                          <center>
+                        <span><h4 style={logotextStyle} className="col-md-6 col-sm-6 col-xs-6 col-lg-6">Sinhala Parser API supports JSON</h4></span>
+                        </center>
+                        </div>
                     </div>
                     <div className="col-md-3 col-sm-3 col-xs-3 col-lg-3" >
                         <img src={xml} style={logoStyle}/>
-                    </div>
+                        <div className="row">
+                          <center>
+                            <span><h4 style={logotextStyle} className="col-md-6 col-sm-6 col-xs-6 col-lg-6">Sinhala Parser API supports XML</h4></span>
+                          </center>
+                          </div>
+                       </div>
                     <div className="col-md-3 col-sm-3 col-xs-3 col-lg-3" />
                 </div>
         	</div>

@@ -97,7 +97,7 @@ class PaserBox extends React.Component{
   handleKey = (e) =>{
     if (e.key === 'Enter') {
         this.parse();
-    } 
+    }
     else {
       var keycode = e.which;
       if ((e.shiftKey == false && (keycode == 46 || keycode == 8 || keycode == 37 || keycode == 39 || (keycode >= 48 && keycode <= 57)))) {
@@ -137,7 +137,7 @@ class PaserBox extends React.Component{
                   name="ta"
                   id="language"/>
             </div>
-            <RaisedButton className="col-md-3-offset col-sm-3-offset col-xs-3-offset col-lg-3-offset" secondary={true} label="Parse" onTouchTap={this.parse}/>
+            <RaisedButton style={{float:'Right'}} className="col-md-3-offset col-sm-3-offset col-xs-3-offset col-lg-3-offset" secondary={true} label="Parse" onTouchTap={this.parse}/>
           </Paper>
         <div className="col-md-1 col-sm-1 col-xs-1 col-lg-1" />
         <br/>
