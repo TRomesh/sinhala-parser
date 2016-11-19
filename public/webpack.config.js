@@ -10,6 +10,8 @@ var config = {
         filename: "bundle.js",
         publicPath: "/app/"
     },
+    debug: true,
+    devtool: "#eval-source-map",
     module: {
         loaders: [
             {
