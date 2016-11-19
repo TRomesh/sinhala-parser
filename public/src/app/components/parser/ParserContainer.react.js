@@ -7,7 +7,7 @@ class ParserContainer extends React.Component{
 
     render(){
         return(
-          	<div className="column" style={{'overflow-x':'hidden'}}>
+          	<div className="column" style={{'overflowX':'hidden'}}>
         	  	<div className="row">
 	          		<div className="col-md-12">
 	          			<PaserBox/>
