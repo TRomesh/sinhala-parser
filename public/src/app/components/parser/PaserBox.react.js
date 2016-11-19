@@ -96,20 +96,20 @@ class PaserBox extends React.Component{
 
   handleKey = (e) =>{
     if (e.key === 'Enter') {
-      this.parse();
+        this.parse();
     } 
     else {
-      /*var keycode = e.which;
-      if ((e.shiftKey == false && (keycode == 46 || keycode == 8 || keycode == 37 || keycode == 39 || (keycode >= 48 && keycode <= 57) || (keycode >= 96 && keycode <= 111)))) {
-        this.setState({
-            textStatus: 'cannot enter numbers'
-        });
+      var keycode = e.which;
+      if ((e.shiftKey == false && (keycode == 46 || keycode == 8 || keycode == 37 || keycode == 39 || (keycode >= 48 && keycode <= 57)))) {
+          this.setState({
+              textStatus: 'cannot enter numbers'
+          });
       }
-      else {*/
+      else {
         this.setState({
             textStatus: ''
         });
-    /*}*/
+      }
     }
   };
 
@@ -118,8 +118,8 @@ class PaserBox extends React.Component{
         this.setState({
             textStatus: ''
         });
-      }
-    };
+    }
+  };
 
   render(){
     return(
