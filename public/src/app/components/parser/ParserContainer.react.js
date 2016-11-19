@@ -3,6 +3,8 @@ import PaserBox from './PaserBox.react';
 import RaisedButton from 'material-ui/RaisedButton';
 import jsonLogo from '../../media/images/json.png';
 import xmlLogo from '../../media/images/XML.png';
+import json from '../../media/images/json.svg';
+import xml from '../../media/images/xml.svg';
 import {amber200} from 'material-ui/styles/colors';
 
 const logoStyle = {
@@ -47,10 +49,10 @@ class ParserContainer extends React.Component{
                 <div className="row">
                     <div className="col-md-3 col-sm-3 col-xs-3 col-lg-3" />
                     <div className="col-md-3 col-sm-3 col-xs-3 col-lg-3" >
-                        <img src={jsonLogo} style={logoStyle}/>
+                        <img src={json} style={logoStyle}/>
                     </div>
                     <div className="col-md-3 col-sm-3 col-xs-3 col-lg-3" >
-                        <img src={xmlLogo} style={logoStyle}/>
+                        <img src={xml} style={logoStyle}/>
                     </div>
                     <div className="col-md-3 col-sm-3 col-xs-3 col-lg-3" />
                 </div>
