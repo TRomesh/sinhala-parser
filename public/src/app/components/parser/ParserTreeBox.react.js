@@ -8,11 +8,11 @@ import ParserTree from './ParserTree.react';
 import Actions from '../../Actions/Actions';
 import Store from '../../Store/Store';
 
-const grapghstyle={
+/*const grapghstyle={
   marginLeft: 50,
   width:1800,
   height:500
-};
+};*/
 
 class ParserTreeBox extends React.Component{
 
