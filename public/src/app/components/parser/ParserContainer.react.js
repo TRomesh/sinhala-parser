@@ -5,27 +5,28 @@ import jsonLogo from '../../media/images/json.png';
 import xmlLogo from '../../media/images/XML.png';
 import json from '../../media/images/json.svg';
 import xml from '../../media/images/xml.svg';
-import {amber200} from 'material-ui/styles/colors';
+import {amberA100} from 'material-ui/styles/colors';
 
 const logoStyle = {
    width:100,
    height:100,
-   marginTop: 50,
+   marginTop: 30,
+   marginBottom: 10,
 };
 
 const logotextStyle={
-  padding:0,
-  paddingRight:30
+  paddingTop: 70,
 };
 
 const styles = {
-    backgroundColor: amber200,
+    backgroundColor: amberA100,
     marginLeft: 300,
     marginRight: 300,
     borderRadius: 10,
     height: 100,
     padding: 20,
-    marginBottom: 20,
+    marginBottom: 30,
+    marginTop: 10,
 };
 
 class ParserContainer extends React.Component{
@@ -53,22 +54,17 @@ class ParserContainer extends React.Component{
                 </div>
                 <div className="row">
                     <div className="col-md-3 col-sm-3 col-xs-3 col-lg-3" />
-                    <div className="col-md-3 col-sm-3 col-xs-3 col-lg-3" >
+                    <div className="column col-md-1 col-sm-1 col-xs-1 col-lg-1" >
                         <img src={json} style={logoStyle}/>
-                        <div className="row">
-                          <center>
-                        <span><h4 style={logotextStyle} className="col-md-6 col-sm-6 col-xs-6 col-lg-6">Sinhala Parser API supports JSON</h4></span>
-                        </center>
-                        </div>
                     </div>
-                    <div className="col-md-3 col-sm-3 col-xs-3 col-lg-3" >
-                        <img src={xml} style={logoStyle}/>
-                        <div className="row">
-                          <center>
-                            <span><h4 style={logotextStyle} className="col-md-6 col-sm-6 col-xs-6 col-lg-6">Sinhala Parser API supports XML</h4></span>
-                          </center>
-                          </div>
-                       </div>
+                    <div className="column col-md-2 col-sm-2 col-xs-2 col-lg-2" >
+                        <h5 style={logotextStyle}>Sinhala Parser API supports JSON</h5>
+                    </div>
+                    <div className="column col-md-1 col-sm-1 col-xs-1 col-lg-1" >
+                        <img src={xml} style={logoStyle}/>                    </div>
+                    <div className="column col-md-2 col-sm-2 col-xs-2 col-lg-2" >
+                        <h5 style={logotextStyle}>Sinhala Parser API supports XML</h5>
+                    </div>
                     <div className="col-md-3 col-sm-3 col-xs-3 col-lg-3" />
                 </div>
         	</div>
