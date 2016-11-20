@@ -37,10 +37,10 @@ class ParserTreeBox extends React.Component{
   _onChange(){
      this.setState({taggedData:Store.getData()});
   }
-
-  shouldComponentUpdate(nextProps, nextState){
-    return this.state.taggedData == nextState.taggedData ? false : true
-  }
+  //
+  // shouldComponentUpdate(nextProps, nextState){
+  //   return this.state.taggedData == nextState.taggedData ? false : true
+  // }
 
   listItems = (obj) => {
 
