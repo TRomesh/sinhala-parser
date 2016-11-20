@@ -25,21 +25,32 @@ const style = {
 const textfieldstyle = {
   marginLeft: 20,
   marginRight: 20,
-  marginBottom: 7,
+  marginBottom: 5,
 };
 
 const validatebox = (textStatus) => {
 
     if (textStatus.length > 100) {
       return {
-              error: '*status is too long',
+              error: '*sentence is too long',
             };
-    }  else if (textStatus === '') {
+    } else if (textStatus === '') {
       return {
-              error: '*status cannot be empty',
+              error: '*sentence cannot be empty',
             };
-    }  else {
-      return true;
+    } else {
+
+        var i;
+        for(i=0; i < textStatus.length; i++){
+          var res = textStatus.charCodeAt(i);
+
+          if(res >= 48 && res <= 57) {
+            return {
+              error: '*cannot enter numbers',
+            }
+          }
+        }
+        return true;
     }
 }
 
@@ -102,7 +113,7 @@ class PaserBox extends React.Component{
       var keycode = e.which;
       if ((e.shiftKey == false && (keycode == 46 || keycode == 8 || keycode == 37 || keycode == 39 || (keycode >= 48 && keycode <= 57)))) {
           this.setState({
-              textStatus: 'cannot enter numbers'
+              textStatus: '*cannot enter numbers'
           });
       }
       else {
