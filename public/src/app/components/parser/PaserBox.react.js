@@ -97,12 +97,12 @@ class PaserBox extends React.Component{
       console.log(status);
 
     }
-          this.clearText();
+          //this.clearText();
   };
 
-  clearText = () => {
+/*  clearText = () => {
     document.getElementById('language').value = '';
-  };
+  };*/
 
   handleKey = (e) =>{
     if (e.key === 'Enter') {
@@ -131,6 +131,11 @@ class PaserBox extends React.Component{
     }
   };
 
+  reset = () => {
+    document.getElementById('language').value = '';
+    this.setState({ showResults: false });
+  };
+
   render(){
     return(
       <div>
@@ -147,7 +152,21 @@ class PaserBox extends React.Component{
                   name="ta"
                   id="language"/>
             </div>
-            <RaisedButton style={{float:'Right'}} className="col-md-3-offset col-sm-3-offset col-xs-3-offset col-lg-3-offset" secondary={true} label="Parse" onTouchTap={this.parse}/>
+            {
+              this.state.showResults ? <RaisedButton 
+                                          style={{float:'Right', marginRight: 10}} 
+                                          className="col-md-3-offset col-sm-3-offset col-xs-3-offset col-lg-3-offset" 
+                                          primary={true} 
+                                          label="Reset" 
+                                          onTouchTap={this.reset}/>
+
+                                      : <RaisedButton 
+                                            style={{float:'Right', marginRight: 10}} 
+                                            className="col-md-3-offset col-sm-3-offset col-xs-3-offset col-lg-3-offset" 
+                                            secondary={true} 
+                                            label="Parse" 
+                                            onTouchTap={this.parse}/>
+            }
           </Paper>
         <div className="col-md-1 col-sm-1 col-xs-1 col-lg-1" />
         <br/>
@@ -158,7 +177,8 @@ class PaserBox extends React.Component{
                                       <div className="col-md-2 col-sm-2 col-xs-2 col-lg-2">
                                         <ParserTags/>
                                       </div>
-                                    </div> : null }
+                                    </div> : null 
+        }
       </div>
     );
   }
