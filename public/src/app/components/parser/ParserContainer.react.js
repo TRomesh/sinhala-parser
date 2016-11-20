@@ -15,7 +15,7 @@ const logoStyle = {
 };
 
 const logotextStyle={
-  paddingTop: 70,
+  paddingTop: 60,
 };
 
 const styles = {
