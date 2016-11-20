@@ -60,9 +60,11 @@ class PaserBox extends React.Component{
       super(props);
         this.state = {
           textStatus: '',
-          tags:{},
+          taggedData:{},
           showResults: false
         };
+
+      this._onChange = this._onChange.bind (this);
 
   }
 
@@ -75,11 +77,11 @@ class PaserBox extends React.Component{
   }
 
   _onChange(){
-    //this.setState({textStatus:Store.getClearTextFieldMsg()});
+     this.setState({taggedData:Store.getData()});
   }
 
   parse = () => {
-    //let val = true;
+
     let status = this.refs.textinput.getValue();
 
     if(validatebox(status).error) {
@@ -87,21 +89,18 @@ class PaserBox extends React.Component{
         textStatus: validatebox(status).error
       });
       return;
-      //val = false;
     }
     else {
 
       Actions.SendDataToTag(status);
       this.setState({ showResults: true });
       console.log(status);
-      //this.setState({textStatus: ''});
 
     }
           this.clearText();
   };
 
   clearText = () => {
-    //this.refs.textinput.value= '';
     document.getElementById('language').value = '';
   };
 
@@ -154,7 +153,7 @@ class PaserBox extends React.Component{
         <br/>
         { this.state.showResults ?  <div>
                                       <div className="col-md-10 col-sm-10 col-xs-10 col-lg-10">
-                                        <ParserTreeBox/>
+                                        <ParserTreeBox taggedData={this.state.taggedData}/>
                                       </div>
                                       <div className="col-md-2 col-sm-2 col-xs-2 col-lg-2">
                                         <ParserTags/>

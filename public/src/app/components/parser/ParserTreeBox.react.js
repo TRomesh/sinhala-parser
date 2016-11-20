@@ -8,39 +8,9 @@ import ParserTree from './ParserTree.react';
 import Actions from '../../Actions/Actions';
 import Store from '../../Store/Store';
 
-/*const grapghstyle={
-  marginLeft: 50,
-  width:1800,
-  height:500
-};*/
 
 class ParserTreeBox extends React.Component{
 
-  constructor(props) {
-    super(props);
-      this.state = {
-        data: [],
-        taggedData:{}
-      }
-
-     this._onChange = this._onChange.bind (this);
-  }
-
-  componentWillMount(){
-    Store.addChangeListener(this._onChange);
-  }
-
-  componentWillUnmount(){
-    Store.removeChangeListener(this._onChange);
-  }
-
-  _onChange(){
-     this.setState({taggedData:Store.getData()});
-  }
-  //
-  // shouldComponentUpdate(nextProps, nextState){
-  //   return this.state.taggedData == nextState.taggedData ? false : true
-  // }
 
   listItems = (obj) => {
 
@@ -122,7 +92,7 @@ class ParserTreeBox extends React.Component{
      return(
         <div>
           <div>
-            <ParserTree data={this.listItems(this.state.taggedData)} />
+            <ParserTree data={this.listItems(this.props.taggedData)} />
           </div>
         </div>
      );
