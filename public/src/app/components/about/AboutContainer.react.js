@@ -4,7 +4,8 @@ import SPlogo from '../../media/images/logo.png';
 
 const logoStyle = {
    width:120,
-   height:90
+   height:150,
+   padding:10
 };
 
 
