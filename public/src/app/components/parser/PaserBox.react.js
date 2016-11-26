@@ -50,7 +50,7 @@ const validatebox = (textStatus) => {
                 error: '*cannot enter invalid characters',
               }
             }
-          }
+          } 
         }
         return true;
     }
@@ -97,6 +97,9 @@ class PaserBox extends React.Component{
       Actions.SendDataToTag(status);
       this.setState({ showResults: true });
       console.log(status);
+      this.setState({
+          textStatus: ''
+      });
 
     }
           //this.clearText();
