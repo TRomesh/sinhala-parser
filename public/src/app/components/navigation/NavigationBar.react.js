@@ -15,8 +15,9 @@ const style = {
 };
 
 const logoStyle = {
-   width:80,
-   height:60
+   width:40,
+   height:50,
+   margin:10
 };
 
 const ButtonStyle = {

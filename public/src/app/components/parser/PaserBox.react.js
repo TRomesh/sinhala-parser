@@ -44,11 +44,13 @@ const validatebox = (textStatus) => {
         for(i=0; i < textStatus.length; i++){
           var res = textStatus.charCodeAt(i);
 
-          if(res >= 48 && res <= 57) {
-            return {
-              error: '*cannot enter numbers',
+          if(!(res >= 3458 && res <= 3572)) {
+            if(res != 32) {
+              return {
+                error: '*cannot enter invalid characters',
+              }
             }
-          }
+          } 
         }
         return true;
     }
@@ -95,6 +97,9 @@ class PaserBox extends React.Component{
       Actions.SendDataToTag(status);
       this.setState({ showResults: true });
       console.log(status);
+      this.setState({
+          textStatus: ''
+      });
 
     }
           //this.clearText();
@@ -109,25 +114,17 @@ class PaserBox extends React.Component{
         this.parse();
     }
     else {
-      var keycode = e.which;
-      if ((e.shiftKey == false && (keycode == 46 || keycode == 8 || keycode == 37 || keycode == 39 || (keycode >= 48 && keycode <= 57)))) {
-          this.setState({
-              textStatus: '*cannot enter numbers'
-          });
-      }
-      else {
-        this.setState({
-            textStatus: ''
-        });
-      }
+      this.setState({
+          textStatus: ''
+      });
     }
   };
 
   handleKeyDown = (e) => {
     if (e.keyCode == 8) {
-        this.setState({
+        /*this.setState({
             textStatus: ''
-        });
+        });*/
     }
   };
 

@@ -1,8 +1,7 @@
 import React from 'react';
 import PaserBox from './PaserBox.react';
 import RaisedButton from 'material-ui/RaisedButton';
-import jsonLogo from '../../media/images/json.png';
-import xmlLogo from '../../media/images/XML.png';
+import sinhala from '../../media/images/sinhala.svg';
 import json from '../../media/images/json.svg';
 import xml from '../../media/images/xml.svg';
 import {amberA100} from 'material-ui/styles/colors';
@@ -11,7 +10,14 @@ const logoStyle = {
    width:100,
    height:100,
    marginTop: 30,
-   marginBottom: 10,
+   marginBottom: 10
+};
+
+const logoStyle1 = {
+   width:150,
+   height:150,
+   marginTop: 10,
+   marginBottom: 3,
 };
 
 const logotextStyle={
@@ -53,19 +59,26 @@ class ParserContainer extends React.Component{
                     </center>
                 </div>
                 <div className="row">
-                    <div className="col-md-3 col-sm-3 col-xs-3 col-lg-3" />
-                    <div className="column col-md-1 col-sm-1 col-xs-1 col-lg-1" >
+                    <div className="col-md-1 col-sm-1 col-xs-1 col-lg-1" style={{marginRight: 40}}/>
+                    <div className="col-md-1 col-sm-1 col-xs-1 col-lg-1">
                         <img src={json} style={logoStyle}/>
                     </div>
-                    <div className="column col-md-2 col-sm-2 col-xs-2 col-lg-2" >
+                    <div className="col-md-2 col-sm-2 col-xs-2 col-lg-2">
                         <h5 style={logotextStyle}>Sinhala Parser API supports JSON</h5>
                     </div>
                     <div className="column col-md-1 col-sm-1 col-xs-1 col-lg-1" >
-                        <img src={xml} style={logoStyle}/>                    </div>
-                    <div className="column col-md-2 col-sm-2 col-xs-2 col-lg-2" >
+                        <img src={xml} style={logoStyle}/> 
+                    </div>
+                    <div className="col-md-2 col-sm-2 col-xs-2 col-lg-2">
                         <h5 style={logotextStyle}>Sinhala Parser API supports XML</h5>
                     </div>
-                    <div className="col-md-3 col-sm-3 col-xs-3 col-lg-3" />
+                    <div className="col-md-1 col-sm-1 col-xs-1 col-lg-1">
+                        <img src={sinhala} style={logoStyle}/>
+                    </div>
+                    <div className="col-md-2 col-sm-2 col-xs-2 col-lg-2">
+                        <h5 style={logotextStyle}>Sinhala Parser API supports Native Sinhala</h5>
+                    </div>
+                    <div className="col-md-1 col-sm-1 col-xs-1 col-lg-1" />
                 </div>
         	</div>
         );
