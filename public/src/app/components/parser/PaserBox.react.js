@@ -44,11 +44,17 @@ const validatebox = (textStatus) => {
         for(i=0; i < textStatus.length; i++){
           var res = textStatus.charCodeAt(i);
 
-          if(res >= 48 && res <= 57) {
+          if(!(res >= 3458 && res <= 3572)) {
+            return {
+              error: '*cannot enter invalid characters',
+            }
+          }
+
+          /*if(res >= 48 && res <= 57) {
             return {
               error: '*cannot enter numbers',
             }
-          }
+          }*/
         }
         return true;
     }
@@ -109,17 +115,17 @@ class PaserBox extends React.Component{
         this.parse();
     }
     else {
-      var keycode = e.which;
+/*      var keycode = e.which;
       if ((e.shiftKey == false && (keycode == 46 || keycode == 8 || keycode == 37 || keycode == 39 || (keycode >= 48 && keycode <= 57)))) {
           this.setState({
-              textStatus: '*cannot enter numbers'
+              textStatus: '*cannot enter invalid characters'
           });
       }
-      else {
+      else {*/
         this.setState({
             textStatus: ''
         });
-      }
+      /*}*/
     }
   };
 

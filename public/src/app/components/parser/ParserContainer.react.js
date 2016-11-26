@@ -1,8 +1,6 @@
 import React from 'react';
 import PaserBox from './PaserBox.react';
 import RaisedButton from 'material-ui/RaisedButton';
-import jsonLogo from '../../media/images/json.png';
-import xmlLogo from '../../media/images/XML.png';
 import json from '../../media/images/json.svg';
 import xml from '../../media/images/xml.svg';
 import {amberA100} from 'material-ui/styles/colors';
@@ -11,7 +9,7 @@ const logoStyle = {
    width:100,
    height:100,
    marginTop: 30,
-   marginBottom: 10,
+   marginBottom: 10
 };
 
 const logotextStyle={
@@ -61,7 +59,8 @@ class ParserContainer extends React.Component{
                         <h5 style={logotextStyle}>Sinhala Parser API supports JSON</h5>
                     </div>
                     <div className="column col-md-1 col-sm-1 col-xs-1 col-lg-1" >
-                        <img src={xml} style={logoStyle}/>                    </div>
+                        <img src={xml} style={logoStyle}/>                    
+                    </div>
                     <div className="column col-md-2 col-sm-2 col-xs-2 col-lg-2" >
                         <h5 style={logotextStyle}>Sinhala Parser API supports XML</h5>
                     </div>
