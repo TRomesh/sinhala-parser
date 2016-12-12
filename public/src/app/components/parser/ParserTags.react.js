@@ -44,32 +44,32 @@ class ParserTags extends React.Component{
     return(
       <div>
         <div style={style}>
-          <Chip backgroundColor={blue200} data-tip="නාම පද (Noun)" onTouchTap={handleTouchTap} style={styles.chip}>
+          <Chip backgroundColor={blue200} data-tip="නාම පද (Noun)"  style={styles.chip}>
 	           නාම පද
 	        </Chip>
 	        <ReactTooltip place="bottom" type="dark" effect="float"/>
-	        <Chip backgroundColor={pink300} data-tip="ක්‍රියා පද (Verb)" onTouchTap={handleTouchTap} style={styles.chip}>
+	        <Chip backgroundColor={pink300} data-tip="ක්‍රියා පද (Verb)"  style={styles.chip}>
 	           ක්‍රියා පද
 	        </Chip>
-	        <Chip backgroundColor={deepOrangeA100} data-tip="නාම විශේෂණ (Adjective)" onTouchTap={handleTouchTap} style={styles.chip}>
+	        <Chip backgroundColor={deepOrangeA100} data-tip="නාම විශේෂණ (Adjective)"  style={styles.chip}>
 	          නාම විශේෂණ
 	        </Chip>
-	        <Chip backgroundColor={deepPurpleA100} data-tip="ක්‍රියා විශේෂණ (Adverb)" onTouchTap={handleTouchTap} style={styles.chip}>
+	        <Chip backgroundColor={deepPurpleA100} data-tip="ක්‍රියා විශේෂණ (Adverb)"  style={styles.chip}>
 	          ක්‍රියා විශේෂණ
 	        </Chip>
-	        <Chip backgroundColor={lightGreenA200} data-tip="නිපාත (Nipatha)" onTouchTap={handleTouchTap} style={styles.chip}>
+	        <Chip backgroundColor={lightGreenA200} data-tip="නිපාත (Nipatha)"  style={styles.chip}>
 	          නිපාත
 	        </Chip>
-	        <Chip backgroundColor={amberA100} data-tip="කෘදන්ත (Krudhantha)" onTouchTap={handleTouchTap} style={styles.chip}>
+	        <Chip backgroundColor={amberA100} data-tip="කෘදන්ත (Krudhantha)"  style={styles.chip}>
 	          කෘදන්ත
 	        </Chip>
-	        <Chip backgroundColor={teal200} data-tip="උපසර්ග (Upasarga)" onTouchTap={handleTouchTap} style={styles.chip}>
+	        <Chip backgroundColor={teal200} data-tip="උපසර්ග (Upasarga)"  style={styles.chip}>
 	          උපසර්ග
 	        </Chip>
-	        <Chip backgroundColor={brown200} data-tip="මිශ්‍ර ක්‍රියා (Mishrakkriya)" onTouchTap={handleTouchTap} style={styles.chip}>
+	        <Chip backgroundColor={brown200} data-tip="මිශ්‍ර ක්‍රියා (Mishrakkriya)"  style={styles.chip}>
 	          මිශ්‍ර ක්‍රියා
 	        </Chip>
-          <Chip backgroundColor={blueGrey100} data-tip="සමාස (Samasa)" onTouchTap={handleTouchTap} style={styles.chip}>
+          <Chip backgroundColor={blueGrey100} data-tip="සමාස (Samasa)"  style={styles.chip}>
             සමාස
           </Chip>
         </div>
