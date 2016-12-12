@@ -91,7 +91,9 @@ class PaserBox extends React.Component{
       return;
     }
     else {
-
+      this.setState({
+          textStatus: ''
+      });
       Actions.SendDataToTag(status);
       this.setState({ showResults: true });
       console.log(status);
@@ -141,8 +143,6 @@ class PaserBox extends React.Component{
                   fullWidth={true}
                   errorText={this.state.textStatus}
                   ref="textinput"
-                  onKeyPress={this.handleKey}
-                  onKeyDown={this.handleKeyDown}
                   hintText="Please enter a meaningful sentence..."
                   name="ta"
                   id="language"/>
