@@ -40,7 +40,7 @@ class ParserContainer extends React.Component{
 	        	</div>
                 <div className="row" style={styles}>
                     <center>
-                        <span><h4>The tagging works better when grammar and orthography are correct</h4></span>
+                        <span><h4>Tagging works better when grammar and orthography are correct</h4></span>
                     </center>
                     <center>
                         <span><h4>Computers make mistakes too!</h4></span>
