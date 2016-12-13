@@ -17,9 +17,9 @@ class AboutContainer extends React.Component{
 
       render(){
         return(
-          <div className="row">
+          <div className="col-md-12 col-sm-12 col-xs-12 col-lg-12 column">
             <center>
-            <div className="row">
+            <div>
               <Link to={"/"} ><img src={SLIITlogo} style={logoStyle}/></Link>
               <img src={SPlogo} style={logoStyle}/>
             </div>
