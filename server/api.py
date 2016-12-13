@@ -4,7 +4,6 @@ import utils
 
 from cherrypy.lib.static import serve_file
 
-
 # static directory
 STATIC_DIR = os.path.dirname(os.path.abspath('public/dist/app'))
 # Root class to handle root routes
@@ -12,6 +11,15 @@ STATIC_DIR = os.path.dirname(os.path.abspath('public/dist/app'))
 class Root(object):
     def index(self):
         cherrypy.InternalRedirect("v1")
+
+# About class to serve index.html
+@cherrypy.expose
+class About(object):
+
+    def GET(self):
+        print os.path.join(STATIC_DIR, "/index.html")
+        return serve_file(os.path.join(STATIC_DIR, "index.html"), content_type=".html")
+
 # WebService class to handle requests to SP-API endpoints
 @cherrypy.expose
 class WebService(object):
@@ -55,6 +63,7 @@ if __name__ == '__main__':
     })
 
     root = Root()
+    root.about = About()
     root.v1 = Root()
     root.v1.api = WebService()
     cherrypy.quickstart(root, '/', conf)
