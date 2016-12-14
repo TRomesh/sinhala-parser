@@ -1,7 +1,7 @@
 # coding: utf-8
 from tagger import Tagger
 from nltk.chunk.regexp import *
-
+import difflib
 
 def get_labels(words, label):
     labels = {}
@@ -19,10 +19,16 @@ def get_labels(words, label):
         count += 1
     return labels
 
-sentence = "ඉතා මිහිරි ගායනයකින් ඔහු අපගේ සිත් සන්සුන් කළේය"
+sentence = "ඉතා NMV මිහිරි KRW ගායනයකින් KPD ඔහු NMP අපගේ NMP සිත් NMP සන්සුන් KPD කළේය KPD"
 words = sentence.split()
+
+#get tagged result from the parser
 tagger = Tagger()
-label = tagger.tag(words)
-labels = get_labels(words, label)
-for index in labels:
-    print labels[index]
+label = tagger.tag(words[0::2])
+labels = get_labels(words[0::2], label)
+
+#calculate the matching ratio
+ratio = difflib.SequenceMatcher(None,words[1::2], labels.values()).ratio()
+
+#debug
+print(ratio * 100)
